@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaztine & Mary Ven Wedding RSVP</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --beige: #D4C5B9;
+            --beige-light: #F4EFEA;
+            --green: #2D5A27;
+            --green-dark: #1E3F1A;
+            --maroon: #7A1C1C;
+            --text-dark: #333333;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--beige-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .rsvp-container {
+            background: #ffffff;
+            max-width: 600px;
+            width: 100%;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .hero-banner {
+            background-color: var(--green);
+            background-image: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+        }
+
+        .hero-banner::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 10px; background: var(--beige);
+        }
+
+        .wedding-title {
+            font-family: 'Alex Brush', cursive; font-size: 3.5rem; margin-bottom: 10px; color: var(--beige-light); text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .wedding-subtitle {
+            font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 300; opacity: 0.9;
+        }
+
+        .event-details { padding: 40px 30px 20px 30px; text-align: center; }
+        .detail-row { margin-bottom: 25px; }
+        .detail-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--green); font-weight: 600; margin-bottom: 5px; }
+        .detail-value { font-size: 1.1rem; font-weight: 500; color: #444; }
+
+        .map-btn {
+            display: inline-flex; align-items: center; gap: 8px; background-color: #fff; color: var(--green); border: 2px solid var(--green);
+            padding: 8px 16px; font-size: 0.85rem; font-weight: 600; border-radius: 20px; text-decoration: none; margin-top: 10px; transition: all 0.3s ease;
+        }
+        .map-btn:hover { background-color: var(--green); color: #fff; }
+
+        .strict-notice {
+            background-color: #FFF5F5; border: 1px solid #FEB2B2; color: var(--maroon); padding: 15px; border-radius: 10px; margin: 20px 30px; font-size: 0.85rem; text-align: center; font-weight: 500;
+        }
+
+        .dress-code-section {
+            background-color: #FAF6F0; padding: 25px; border-radius: 10px; margin: 20px 30px; border: 1px dashed var(--beige); text-align: center;
+        }
+
+        .color-palette { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
+        .color-circle { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: relative; }
+        .color-circle span { position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); font-size: 0.65rem; font-weight: 500; color: #666; text-transform: uppercase; }
+        .color-beige { background-color: #D4C5B9; }
+        .color-green { background-color: #2D5A27; }
+        .color-maroon { background-color: #7A1C1C; }
+
+        .rsvp-form-section { padding: 10px 30px 40px 30px; }
+        .form-title { text-align: center; font-size: 1.4rem; color: var(--maroon); margin-bottom: 25px; font-weight: 500; position: relative; padding-bottom: 10px; }
+        .form-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 2px; background-color: var(--beige); }
+
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 8px; color: #555; }
+        .form-control { width: 100%; padding: 12px 15px; border: 1px solid #DCDCDC; border-radius: 8px; font-family: inherit; font-size: 0.95rem; }
+        .form-control:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.1); }
+
+        .radio-group { display: flex; flex-direction: column; gap: 12px; margin-top: 5px; }
+        .radio-option { display: flex; align-items: flex-start; cursor: pointer; font-size: 0.95rem; background: #F9F9F9; padding: 12px; border: 1px solid #EAEAEA; border-radius: 8px; }
+        .radio-option input { margin-right: 10px; margin-top: 3px; accent-color: var(--green); width: 18px; height: 18px; }
+        .option-desc { display: block; font-size: 0.8rem; color: #777; margin-top: 2px; }
+
+        .submit-btn {
+            width: 100%; background-color: var(--green); color: #ffffff; border: none; padding: 15px; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px;
+        }
+        .submit-btn:hover { background-color: var(--green-dark); }
+
+        @media (max-width: 480px) {
+            .wedding-title { font-size: 2.8rem; }
+            body { padding: 10px; }
+            .event-details, .rsvp-form-section, .dress-code-section, .strict-notice { padding: 20px 15px; margin-left: 10px; margin-right: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="rsvp-container">
+        <div class="hero-banner">
+            <h1 class="wedding-title">Jaztine & Mary Ven</h1>
+            <p class="wedding-subtitle">Wedding Celebration</p>
+        </div>
+
+        <div class="event-details">
+            <div class="detail-row">
+                <div class="detail-label">Kailan (When)</div>
+                <div class="detail-value">December 21, 2026 (Monday)</div>
+                <div class="detail-value" style="font-size: 0.9rem; color: #666; margin-top: 2px;">Starts at exactly 3:00 PM</div>
+            </div>
+
+            <div class="detail-row">
+                <div class="detail-label">Saan (Ceremony & Reception)</div>
+                <div class="detail-value">New Light City Church</div>
+                <div class="detail-value" style="font-size: 0.95rem; color: #555; margin-bottom: 5px;">Tanawan, Bustos, Bulacan</div>
+                <a href="https://maps.app.goo.gl/qQvFRLAhqVkfBoz26?g_st=ic" target="_blank" class="map-btn">📍 View on Google Maps</a>
+            </div>
+        </div>
+
+        <div class="strict-notice">
+            ⚠️ <strong>Strictly by Invitation Only</strong><br>
+            Dahil limitado po ang upuan sa aming reception, ang imbitasyong ito ay para lamang sa taong nakatanggap ng mensaheng ito. Paumanhin po at pansamantalang hindi muna pinahihintulutan ang mga plus-ones.
+        </div>
+
+        <div class="dress-code-section">
+            <div class="detail-label">Dress Code & Motif</div>
+            <div class="detail-value" style="font-size: 1rem;">Semi-Formal</div>
+            <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Maaari po lamang na sumunod sa aming color palette:</p>
+            <div class="color-palette">
+                <div class="color-circle color-beige"><span>Beige</span></div>
+                <div class="color-circle color-green"><span>Green</span></div>
+                <div class="color-circle color-maroon"><span>Maroon</span></div>
+            </div>
+            <div style="height: 25px;"></div>
+        </div>
+
+        <div class="rsvp-form-section">
+            <h2 class="form-title">RSVP</h2>
+            
+            <!-- PALITAN MO ANG EMAIL SA IBABA (ACTION ATTRIBUTE) -->
+            <form action="https://formsubmit.co/jaztine.canoza@newlightcity.org" method="POST">
+                
+                <!-- Anti-spam & redirect options -->
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="form-group">
+                    <label class="form-label">Buong Pangalan (Full Name):</label>
+                    <input type="text" name="Pangalan" class="form-control" placeholder="Ipasok ang iyong pangalan" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Kumpirmasyon ng Pagdalo:</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="Kumpirmasyon" value="Makakadalo (1 Seat Only)" checked>
+                            <div>
+                                <strong>Oo, Ako ay makakadalo (1 Seat Only)</strong>
+                                <span class="option-desc">Kumpirmasyon ng sarili mong upuan. Walang kasamang plus-one.</span>
+                            </div>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="Kumpirmasyon" value="Makakadalo kaming dalawa (2 Seats Only)">
+                            <div>
+                                <strong>Oo, Makakadalo kaming dalawa (2 Seats Only)</strong>
+                                <span class="option-desc">Para lamang sa mag-asawa na parehong nakatanggap ng imbitasyon.</span>
+                            </div>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="Kumpirmasyon" value="Hindi Makakadalo">
+                            <div>
+                                <strong>Paumanhin, hindi makakadalo</strong>
+                                <span class="option-desc">Ipaalam sa amin para maibahagi ang upuan sa iba.</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Mensahe o Food Restrictions (Optional):</label>
+                    <textarea name="Mensahe" class="form-control" rows="3" placeholder="Ipaalam kung may food allergy..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Ipadala ang RSVP</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
