@@ -149,8 +149,16 @@
         .color-palette {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 25px;
             margin-top: 15px;
+        }
+
+        /* Wrapper to stack each circle and text vertically */
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
         }
 
         .color-circle {
@@ -159,21 +167,16 @@
             border-radius: 50%;
             border: 2px solid #fff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: relative;
         }
 
-        .color-circle span {
-            position: absolute;
-            bottom: -22px;
-            left: 50%;
-            transform: translateX(-50%);
+        .color-item span {
             font-size: 0.65rem;
-            font-weight: 500;
+            font-weight: 600;
             color: #666;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Fixed motif colors to map to root variables */
         .color-beige { background-color: var(--beige); }
         .color-green { background-color: var(--green); }
         .color-burgundy { background-color: var(--burgundy); }
@@ -345,11 +348,19 @@
             <div class="detail-value" style="font-size: 1rem;">Semi-Formal</div>
             <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Maaari po lamang na sumunod sa aming color palette:</p>
             <div class="color-palette">
-                <div class="color-circle color-beige"><span>Beige</span></div>
-                <div class="color-circle color-green"><span>Green</span></div>
-                <div class="color-circle color-burgundy"><span>burgundy</span></div>
+                <div class="color-item">
+                    <div class="color-circle color-beige"></div>
+                    <span>Beige</span>
+                </div>
+                <div class="color-item">
+                    <div class="color-circle color-green"></div>
+                    <span>Green</span>
+                </div>
+                <div class="color-item">
+                    <div class="color-circle color-burgundy"></div>
+                    <span>Burgundy</span>
+                </div>
             </div>
-            <div style="height: 25px;"></div> <!-- spacer for color labels -->
         </div>
 
         <div class="rsvp-form-section">
@@ -457,3 +468,4 @@
     </script>
 </body>
 </html>
+
