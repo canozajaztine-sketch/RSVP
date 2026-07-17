@@ -350,203 +350,109 @@
             </div>
             <div style="height: 25px;"></div> <!-- spacer for color labels -->
         </div>
-<form id="rsvpForm"
-      action="https://sheetdb.io/api/v1/hjv8z30hajglw"
-      method="POST">
 
-    <!-- Name -->
-    <div class="form-group">
-        <label class="form-label">
-            Full Name
-        </label>
+        <div class="rsvp-form-section">
+            <form id="rsvpForm" action="https://sheetdb.io/api/v1/hjv8z30hajglw" method="POST">
 
-        <input
-            type="text"
-            name="data[Pangalan]"
-            class="form-control"
-            placeholder="Ilagay ang buong pangalan"
-            required>
-    </div>
-
-    <!-- Confirmation -->
-    <div class="form-group">
-
-        <label class="form-label">
-            Attendance Confirmation
-        </label>
-
-        <div class="radio-group">
-
-            <label class="radio-option">
-
-                <input
-                    type="radio"
-                    name="data[Kumpirmasyon]"
-                    value="Oo, Makakadalo Ako"
-                    checked>
-
-                <div>
-                    <strong>Yes, I'll Attend</strong>
-                    <span class="option-desc">
-                        Looking forward to celebrating with you.
-                    </span>
+                <!-- Name -->
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" name="data[Pangalan]" class="form-control" placeholder="Ilagay ang buong pangalan" required>
                 </div>
 
-            </label>
-
-            <label class="radio-option">
-
-                <input
-                    type="radio"
-                    name="data[Kumpirmasyon]"
-                    value="Hindi, Hindi Makakadalo">
-
-                <div>
-                    <strong>Sorry, I Can't Attend</strong>
-
-                    <span class="option-desc">
-                        Thank you for inviting me.
-                    </span>
-
+                <!-- Confirmation -->
+                <div class="form-group">
+                    <label class="form-label">Attendance Confirmation</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="data[Kumpirmasyon]" value="Oo, Makakadalo Ako" checked>
+                            <div>
+                                <strong>Yes, I'll Attend</strong>
+                                <span class="option-desc">Looking forward to celebrating with you.</span>
+                            </div>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="data[Kumpirmasyon]" value="Hindi, Hindi Makakadalo">
+                            <div>
+                                <strong>Sorry, I Can't Attend</strong>
+                                <span class="option-desc">Thank you for inviting me.</span>
+                            </div>
+                        </label>
+                    </div>
                 </div>
 
-            </label>
+                <!-- Message -->
+                <div class="form-group">
+                    <label class="form-label">Message (Optional)</label>
+                    <textarea name="data[Mensahe]" class="form-control" rows="4" placeholder="Mag-iwan ng mensahe para sa ikakasal..."></textarea>
+                </div>
 
+                <button type="submit" class="submit-btn">Send RSVP</button>
+            </form>
         </div>
-
     </div>
 
-    <!-- Message -->
+    <script>
+        const form = document.getElementById("rsvpForm");
 
-    <div class="form-group">
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
 
-        <label class="form-label">
+            const button = form.querySelector(".submit-btn");
+            const original = button.innerHTML;
 
-            Message (Optional)
+            button.disabled = true;
+            button.innerHTML = "Sending...";
 
-        </label>
+            try {
+                // Save to SheetDB
+                const sheetResponse = await fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(form)
+                });
 
-        <textarea
-            name="data[Mensahe]"
-            class="form-control"
-            rows="4"
-            placeholder="Mag-iwan ng mensahe para sa ikakasal..."></textarea>
+                if (!sheetResponse.ok) {
+                    throw new Error("SheetDB Error");
+                }
 
-    </div>
+                const name = form.querySelector('input[name="data[Pangalan]"]').value;
+                const confirmation = form.querySelector('input[name="data[Kumpirmasyon]"]:checked').value;
+                const message = form.querySelector('textarea[name="data[Mensahe]"]').value;
 
-    <button type="submit" class="submit-btn">
+                // Backup Email
+                await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                    },
+                    body: JSON.stringify({
+                        access_key: "d3b2d660-1e64-41f5-9071-b9a59f259515",
+                        subject: `Wedding RSVP - ${name}`,
+                        from_name: "Wedding RSVP",
+                        to_email: "jaztine.canoza@newlightcity.org",
+                        Pangalan: name,
+                        Kumpirmasyon: confirmation,
+                        Mensahe: message
+                    })
+                });
 
-        Send RSVP
+                button.innerHTML = "✓ RSVP Sent";
 
-    </button>
+                setTimeout(() => {
+                    alert("Thank you! Your RSVP has been successfully submitted.");
+                    form.reset();
+                    button.disabled = false;
+                    button.innerHTML = original;
+                }, 800);
 
-</form>
-const form = document.getElementById("rsvpForm");
-
-form.addEventListener("submit", async function (e) {
-
-    e.preventDefault();
-
-    const button = form.querySelector(".submit-btn");
-    const original = button.innerHTML;
-
-    button.disabled = true;
-    button.innerHTML = "Sending...";
-
-    try {
-
-        // Save to SheetDB
-        const sheetResponse = await fetch(form.action, {
-
-            method: "POST",
-            body: new FormData(form)
-
+            } catch (error) {
+                console.error(error);
+                alert("Unable to submit your RSVP. Please try again.");
+                button.disabled = false;
+                button.innerHTML = original;
+            }
         });
-
-        if (!sheetResponse.ok) {
-
-            throw new Error("SheetDB Error");
-
-        }
-
-        const name =
-            form.querySelector('input[name="data[Pangalan]"]').value;
-
-        const confirmation =
-            form.querySelector(
-                'input[name="data[Kumpirmasyon]"]:checked'
-            ).value;
-
-        const message =
-            form.querySelector(
-                'textarea[name="data[Mensahe]"]'
-            ).value;
-
-        // Backup Email
-        await fetch("https://api.web3forms.com/submit", {
-
-            method: "POST",
-
-            headers: {
-
-                "Content-Type": "application/json",
-                Accept: "application/json"
-
-            },
-
-            body: JSON.stringify({
-
-                access_key:
-                    "d3b2d660-1e64-41f5-9071-b9a59f259515",
-
-                subject:
-                    `Wedding RSVP - ${name}`,
-
-                from_name:
-                    "Wedding RSVP",
-
-                to_email:
-                    "jaztine.canoza@newlightcity.org",
-
-                Pangalan: name,
-
-                Kumpirmasyon: confirmation,
-
-                Mensahe: message
-
-            })
-
-        });
-
-        button.innerHTML = "✓ RSVP Sent";
-
-        setTimeout(() => {
-
-            alert(
-                "Thank you! Your RSVP has been successfully submitted."
-            );
-
-            form.reset();
-
-            button.disabled = false;
-            button.innerHTML = original;
-
-        }, 800);
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-        alert(
-            "Unable to submit your RSVP. Please try again."
-        );
-
-        button.disabled = false;
-
-        button.innerHTML = original;
-
-    }
-
-});
+    </script>
+</body>
+</html>
