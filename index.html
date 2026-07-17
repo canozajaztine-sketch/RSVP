@@ -1,371 +1,200 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaztine & Mary Ven Wedding RSVP</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap');
+<<form id="rsvpForm"
+      action="https://sheetdb.io/api/v1/hjv8z30hajglw"
+      method="POST">
 
-        :root {
-            --beige: #D4C5B9;
-            --beige-light: #F4EFEA;
-            --green: #2D5A27;
-            --green-dark: #1E3F1A;
-            --maroon: #7A1C1C;
-            --text-dark: #333333;
-        }
+    <!-- Name -->
+    <div class="form-group">
+        <label class="form-label">
+            Full Name
+        </label>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--beige-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            background-color: #ffffff;
-            max-width: 600px;
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            border: 1px solid rgba(212, 197, 185, 0.5);
-        }
-
-        .header {
-            background-color: var(--green);
-            color: #ffffff;
-            text-align: center;
-            padding: 40px 20px;
-            position: relative;
-        }
-
-        .header h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            font-weight: 400;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 300;
-        }
-
-        .details-section {
-            padding: 30px 25px;
-            border-bottom: 1px dashed var(--beige);
-        }
-
-        .detail-row {
-            margin-bottom: 20px;
-        }
-
-        .detail-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .detail-label {
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            color: var(--green);
-            margin-bottom: 3px;
-        }
-
-        .detail-value {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-        }
-
-        .detail-value a {
-            color: var(--green);
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 1px solid var(--green);
-        }
-
-        .strict-notice {
-            background-color: #FFF8F8;
-            border-left: 4px solid var(--maroon);
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.9rem;
-        }
-
-        .strict-notice strong {
-            color: var(--maroon);
-        }
-
-        .color-palette {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
-        .color-circle {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .color-circle span::before {
-            content: '';
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            vertical-align: middle;
-            margin-right: 8px;
-            border: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .color-beige span::before { background-color: var(--beige); }
-        .color-green span::before { background-color: var(--green); }
-        .color-maroon span::before { background-color: var(--maroon); }
-
-        .rsvp-form-section {
-            padding: 30px 25px;
-        }
-
-        .form-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2.5rem;
-            color: var(--green);
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-label {
-            display: block;
-            font-weight: 500;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #D4C5B9;
-            border-radius: 8px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            color: var(--text-dark);
-            transition: border-color 0.3s ease;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--green);
-        }
-
-        .radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 5px;
-        }
-
-        .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            padding: 10px;
-            border: 1px solid #EAEAEA;
-            border-radius: 8px;
-            transition: background-color 0.2s ease;
-        }
-
-        .radio-option:hover {
-            background-color: var(--beige-light);
-        }
-
-        .radio-option input {
-            accent-color: var(--green);
-            width: 18px;
-            height: 18px;
-        }
-
-        .btn-submit {
-            width: 100%;
-            background-color: var(--green);
-            color: #ffffff;
-            border: none;
-            padding: 15px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .btn-submit:hover {
-            background-color: var(--green-dark);
-        }
-
-        @media (max-width: 480px) {
-            .header h1 { font-size: 2.8rem; }
-            body { padding: 10px; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>Jaztine & Mary Ven</h1>
-            <p>Wedding RSVP</p>
-        </div>
-
-        <!-- Wedding Details -->
-        <div class="details-section">
-            <div class="detail-row">
-                <div class="detail-label">Kailan (Date)</div>
-                <div class="detail-value">December 21, 2026 (Monday)</div>
-            </div>
-
-            <div class="detail-row">
-                <div class="detail-label">Saan (Ceremony & Reception)</div>
-                <div class="detail-value">New Light City Church</div>
-                <div class="detail-value" style="font-size: 0.95rem; color: #555; margin-top: 4px;">
-                    📍 <a href="https://maps.app.goo.gl/qQvFRLahQvKfBoz26?g_st=ic" target="_blank">Tingnan ang Google Maps Link</a>
-                </div>
-            </div>
-
-            <div class="strict-notice">
-                <strong>Strictly by Invitation Only</strong><br>
-                Naka-alado po ang upuan sa aming reception, ang imbitasyong ito ay para sa nakasaad na pangalan lamang.
-            </div>
-
-            <div class="detail-row" style="margin-top: 20px;">
-                <div class="detail-label">Dress Code & Motif</div>
-                <div class="detail-value" style="font-size: 1rem;">Semi-Formal</div>
-                <div style="font-size: 0.85rem; color: #666; margin-top: 5px;">Maaaring magsuot ng alinman sa mga kulay na ito:</div>
-                <div class="color-palette">
-                    <div class="color-circle color-beige"><span style="font-size: 0.9rem;">Beige</span></div>
-                    <div class="color-circle color-green"><span style="font-size: 0.9rem;">Green</span></div>
-                    <div class="color-circle color-maroon"><span style="font-size: 0.9rem;">Maroon</span></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- RSVP Form Section -->
-        <div class="rsvp-form-section">
-            <h2 class="form-title">RSVP</h2>
-            
-            <!-- EXCEL SHEET ROUTING VIA SHEETDB -->
-            <form id="rsvp-wedding-form" action="https://sheetdb.io/api/v1/hjv8z30hajglw" method="POST">
-
-                <!-- Full Name -->
-                <div class="form-group">
-                    <label class="form-label">Buong Pangalan (Full Name):</label>
-                    <input type="text" name="data[Pangalan]" class="form-control" placeholder="I-type ang iyong pangalan" required>
-                </div>
-
-                <!-- Attendance Radio Buttons -->
-                <div class="form-group">
-                    <label class="form-label">Kumpirmasyon ng Pagdalo:</label>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="data[Kumpirmasyon]" value="Oo, Makakarating Ako" checked required>
-                            <span>Yes, I will be there! 🎉</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="data[Kumpirmasyon]" value="Hindi, Paumanhin">
-                            <span>Sorry, I can't make it. 😔</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Message / Wishes -->
-                <div class="form-group">
-                    <label class="form-label">Mensahe o Hiling para sa Kasal (Optional):</label>
-                    <textarea name="data[Mensahe]" class="form-control" rows="4" placeholder="Ibahagi ang iyong pagbati..."></textarea>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit" class="btn-submit">Ipadala ang RSVP</button>
-            </form>
-        </div>
+        <input
+            type="text"
+            name="data[Pangalan]"
+            class="form-control"
+            placeholder="Ilagay ang buong pangalan"
+            required>
     </div>
 
-    <script>
-        const form = document.getElementById('rsvp-wedding-form');
-        
-        form.addEventListener("submit", e => {
-            e.preventDefault();
-            
-            const submitBtn = form.querySelector('.btn-submit');
-            const originalText = submitBtn.innerText;
-            submitBtn.innerText = "Ipinapadala...";
-            submitBtn.disabled = true;
+    <!-- Confirmation -->
+    <div class="form-group">
 
-            // 1. I-save muna sa Google Sheet gamit ang SheetDB
-            fetch(form.action, {
-                method : "POST",
-                body: new FormData(form),
-            })
-            .then(response => response.json())
-            .then((data) => {
-                // 2. Pagkatapos ma-save sa Excel, magpapadala rin ito ng backup email notification sa iyo sa background gamit ang Web3Forms
-                const nameInput = form.querySelector('input[name="data[Pangalan]"]').value;
-                const statusInput = form.querySelector('input[name="data[Kumpirmasyon]"]:checked').value;
-                const messageInput = form.querySelector('textarea[name="data[Mensahe]"]').value;
+        <label class="form-label">
+            Attendance Confirmation
+        </label>
 
-                return fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify({
-                        access_key: 'd3b2d660-1e64-41f5-9071-b9a59f259515',
-                        subject: `New Wedding RSVP from ${nameInput}`,
-                        from_name: 'Wedding Guest RSVP Website',
-                        to_email: 'jaztine.canoza@newlightcity.org',
-                        Pangalan: nameInput,
-                        Status: statusInput,
-                        Mensahe: messageInput
-                    })
-                });
-            })
-            .then(() => {
-                alert('Salamat! Ang iyong RSVP ay matagumpay na naipadala at nailista sa Excel at Email. ❤️');
-                form.reset();
-                submitBtn.innerText = originalText;
-                submitBtn.disabled = false;
-            })
-            .catch((error) => {
-                alert('May kaunting isyu sa pagpapadala. Paki-subok po ulit.');
-                submitBtn.innerText = originalText;
-                submitBtn.disabled = false;
-            });
+        <div class="radio-group">
+
+            <label class="radio-option">
+
+                <input
+                    type="radio"
+                    name="data[Kumpirmasyon]"
+                    value="Oo, Makakadalo Ako"
+                    checked>
+
+                <div>
+                    <strong>Yes, I'll Attend</strong>
+                    <span class="option-desc">
+                        Looking forward to celebrating with you.
+                    </span>
+                </div>
+
+            </label>
+
+            <label class="radio-option">
+
+                <input
+                    type="radio"
+                    name="data[Kumpirmasyon]"
+                    value="Hindi, Hindi Makakadalo">
+
+                <div>
+                    <strong>Sorry, I Can't Attend</strong>
+
+                    <span class="option-desc">
+                        Thank you for inviting me.
+                    </span>
+
+                </div>
+
+            </label>
+
+        </div>
+
+    </div>
+
+    <!-- Message -->
+
+    <div class="form-group">
+
+        <label class="form-label">
+
+            Message (Optional)
+
+        </label>
+
+        <textarea
+            name="data[Mensahe]"
+            class="form-control"
+            rows="4"
+            placeholder="Mag-iwan ng mensahe para sa ikakasal..."></textarea>
+
+    </div>
+
+    <button type="submit" class="submit-btn">
+
+        Send RSVP
+
+    </button>
+
+</form>
+const form = document.getElementById("rsvpForm");
+
+form.addEventListener("submit", async function (e) {
+
+    e.preventDefault();
+
+    const button = form.querySelector(".submit-btn");
+    const original = button.innerHTML;
+
+    button.disabled = true;
+    button.innerHTML = "Sending...";
+
+    try {
+
+        // Save to SheetDB
+        const sheetResponse = await fetch(form.action, {
+
+            method: "POST",
+            body: new FormData(form)
+
         });
-    </script>
-</body>
-</html>
+
+        if (!sheetResponse.ok) {
+
+            throw new Error("SheetDB Error");
+
+        }
+
+        const name =
+            form.querySelector('input[name="data[Pangalan]"]').value;
+
+        const confirmation =
+            form.querySelector(
+                'input[name="data[Kumpirmasyon]"]:checked'
+            ).value;
+
+        const message =
+            form.querySelector(
+                'textarea[name="data[Mensahe]"]'
+            ).value;
+
+        // Backup Email
+        await fetch("https://api.web3forms.com/submit", {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type": "application/json",
+                Accept: "application/json"
+
+            },
+
+            body: JSON.stringify({
+
+                access_key:
+                    "d3b2d660-1e64-41f5-9071-b9a59f259515",
+
+                subject:
+                    `Wedding RSVP - ${name}`,
+
+                from_name:
+                    "Wedding RSVP",
+
+                to_email:
+                    "jaztine.canoza@newlightcity.org",
+
+                Pangalan: name,
+
+                Kumpirmasyon: confirmation,
+
+                Mensahe: message
+
+            })
+
+        });
+
+        button.innerHTML = "✓ RSVP Sent";
+
+        setTimeout(() => {
+
+            alert(
+                "Thank you! Your RSVP has been successfully submitted."
+            );
+
+            form.reset();
+
+            button.disabled = false;
+            button.innerHTML = original;
+
+        }, 800);
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Unable to submit your RSVP. Please try again."
+        );
+
+        button.disabled = false;
+
+        button.innerHTML = original;
+
+    }
+
+});
