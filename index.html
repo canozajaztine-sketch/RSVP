@@ -1,471 +1,322 @@
-<!DOCTYPE html>
+l<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaztine & Mary Ven Wedding RSVP</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600;700&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        :root {
-            --beige: #D4C5B9;
-            --beige-light: #F4EFEA;
-            --green: #123A26;
-            --green-dark: #1E3F1A;
-            --burgundy: #800020;
-            --text-dark: #333333;
-        }
+<title>Jaztine & Mary Ven</title>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--beige-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-        .rsvp-container {
-            background: #ffffff;
-            max-width: 600px;
-            width: 100%;
-            margin: auto;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
+<style>
 
-        .hero-banner {
-            background-color: var(--green);
-            background-image: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
-            color: #ffffff;
-            text-align: center;
-            padding: 50px 20px;
-            position: relative;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-        .hero-banner::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 10px;
-            background: var(--beige);
-        }
+html{
+scroll-behavior:smooth;
+}
 
-        .wedding-title {
-            font-family: 'Alex Brush', cursive;
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            color: var(--beige-light);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
+body{
+font-family:Montserrat,sans-serif;
+background:#faf7f3;
+overflow-x:hidden;
+}
 
-        .wedding-subtitle {
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 300;
-            opacity: 0.9;
-        }
+.hero{
 
-        .event-details {
-            padding: 40px 30px 20px 30px;
-            text-align: center;
-        }
+height:100vh;
 
-        .detail-row {
-            margin-bottom: 25px;
-        }
+background:url("hero.jpg") center center/cover no-repeat;
 
-        .detail-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--green);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
+position:relative;
 
-        .detail-value {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #444;
-        }
+display:flex;
 
-        .map-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: #fff;
-            color: var(--green);
-            border: 2px solid var(--green);
-            padding: 8px 16px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border-radius: 20px;
-            text-decoration: none;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-        }
+justify-content:center;
 
-        .map-btn:hover {
-            background-color: var(--green);
-            color: #fff;
-        }
+align-items:center;
 
-        .strict-notice {
-            background-color: #FFF5F5;
-            border: 1px solid #FEB2B2;
-            color: var(--maroon);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 30px;
-            font-size: 0.85rem;
-            text-align: center;
-            font-weight: 500;
-        }
+text-align:center;
 
-        .dress-code-section {
-            background-color: #FAF6F0;
-            padding: 25px;
-            border-radius: 10px;
-            margin: 20px 30px;
-            border: 1px dashed var(--beige);
-            text-align: center;
-        }
+color:white;
 
-        .color-palette {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 15px;
-        }
+}
 
-        /* Wrapper to stack each circle and text vertically */
-        .color-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
+.hero::before{
 
-        .color-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+content:"";
 
-        .color-item span {
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+position:absolute;
 
-        .color-beige { background-color: var(--beige); }
-        .color-green { background-color: var(--green); }
-        .color-burgundy { background-color: var(--burgundy); }
+inset:0;
 
-        .rsvp-form-section {
-            padding: 10px 30px 40px 30px;
-        }
+background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45));
 
-        .form-title {
-            text-align: center;
-            font-size: 1.4rem;
-            color: var(--maroon);
-            margin-bottom: 25px;
-            font-weight: 500;
-            position: relative;
-            padding-bottom: 10px;
-        }
+backdrop-filter:blur(2px);
 
-        .form-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 2px;
-            background-color: var(--beige);
-        }
+}
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+.content{
 
-        .form-label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 8px;
-            color: #555;
-        }
+position:relative;
 
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #DCDCDC;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
+z-index:2;
 
-        .form-control:focus {
-            outline: none;
-            border-color: var(--green);
-            box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.1);
-        }
+animation:fadeUp 2s ease;
 
-        .radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 5px;
-        }
+padding:20px;
 
-        .radio-option {
-            display: flex;
-            align-items: flex-start;
-            cursor: pointer;
-            font-size: 0.95rem;
-            background: #F9F9F9;
-            padding: 12px;
-            border: 1px solid #EAEAEA;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-        }
+}
 
-        .radio-option:hover {
-            border-color: var(--beige);
-            background: #FDFDFD;
-        }
+.invite{
 
-        .radio-option input {
-            margin-right: 10px;
-            margin-top: 3px;
-            accent-color: var(--green);
-            width: 18px;
-            height: 18px;
-        }
+letter-spacing:4px;
 
-        .option-desc {
-            display: block;
-            font-size: 0.8rem;
-            color: #777;
-            margin-top: 2px;
-        }
+font-size:.8rem;
 
-        .submit-btn {
-            width: 100%;
-            background-color: var(--green);
-            color: #ffffff;
-            border: none;
-            padding: 15px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 10px;
-        }
+text-transform:uppercase;
 
-        .submit-btn:hover {
-            background-color: var(--green-dark);
-        }
+margin-bottom:20px;
 
-        @media (max-width: 480px) {
-            .wedding-title {
-                font-size: 2.8rem;
-            }
-            body {
-                padding: 10px;
-            }
-            .event-details, .rsvp-form-section, .dress-code-section, .strict-notice {
-                padding: 20px 15px;
-                margin-left: 10px;
-                margin-right: 10px;
-            }
-        }
-    </style>
+}
+
+h1{
+
+font-family:"Alex Brush",cursive;
+
+font-size:6rem;
+
+line-height:1;
+
+margin-bottom:20px;
+
+}
+
+.date{
+
+font-size:1.2rem;
+
+letter-spacing:3px;
+
+margin-bottom:35px;
+
+}
+
+.button{
+
+display:inline-block;
+
+padding:15px 40px;
+
+background:rgba(255,255,255,.18);
+
+border:1px solid rgba(255,255,255,.4);
+
+backdrop-filter:blur(15px);
+
+border-radius:50px;
+
+color:white;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.button:hover{
+
+background:white;
+
+color:black;
+
+}
+
+.scroll{
+
+position:absolute;
+
+bottom:30px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:2rem;
+
+animation:bounce 2s infinite;
+
+z-index:5;
+
+color:white;
+
+}
+
+.gallery{
+
+padding:100px 20px;
+
+max-width:1000px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.gallery h2{
+
+font-size:2rem;
+
+margin-bottom:50px;
+
+color:#123A26;
+
+}
+
+.gallery img{
+
+width:100%;
+
+max-width:700px;
+
+border-radius:25px;
+
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+transition:.5s;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.02);
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes bounce{
+
+0%,100%{
+
+transform:translate(-50%,0);
+
+}
+
+50%{
+
+transform:translate(-50%,10px);
+
+}
+
+}
+
+@media(max-width:768px){
+
+h1{
+
+font-size:4rem;
+
+}
+
+.date{
+
+font-size:1rem;
+
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <div class="rsvp-container">
-        <!-- Hero Banner -->
-        <div class="hero-banner">
-            <h1 class="wedding-title">Jaztine & Mary Ven</h1>
-            <p class="wedding-subtitle">Wedding Celebration</p>
-        </div>
+<section class="hero">
 
-        <!-- Event Details -->
-        <div class="event-details">
-            <div class="detail-row">
-                <div class="detail-label">Kailan (When)</div>
-                <div class="detail-value">December 21, 2026 (Monday)</div>
-                <div class="detail-value" style="font-size: 0.9rem; color: #666; margin-top: 2px;">Starts at exactly 3:00 PM</div>
-            </div>
+<div class="content">
 
-            <div class="detail-row">
-                <div class="detail-label">Saan (Ceremony & Reception)</div>
-                <div class="detail-value">New Light City Church</div>
-                <div class="detail-value" style="font-size: 0.95rem; color: #555; margin-bottom: 5px;">Tanawan, Bustos, Bulacan</div>
-                <!-- Google Maps Link -->
-                <a href="https://maps.app.goo.gl/qQvFRLAhqVkfBoz26?g_st=ic" target="_blank" class="map-btn">
-                    📍 View on Google Maps
-                </a>
-            </div>
-        </div>
+<p class="invite">
 
-        <!-- Strict Invitation Notice -->
-        <div class="strict-notice">
-            ⚠️ <strong>Strictly by Invitation Only</strong><br>
-            Dahil limitado po ang upuan sa aming reception, ang imbitasyong ito ay para lamang sa taong nakatanggap ng mensaheng ito. Paumanhin po at pansamantalang hindi muna pinahihintulutan ang mga hindi inaasahang plus-ones.
-        </div>
+Together with our Families
 
-        <!-- Dress Code Section -->
-        <div class="dress-code-section">
-            <div class="detail-label">Dress Code & Motif</div>
-            <div class="detail-value" style="font-size: 1rem;">Semi-Formal</div>
-            <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Maaari po lamang na sumunod sa aming color palette:</p>
-            <div class="color-palette">
-                <div class="color-item">
-                    <div class="color-circle color-beige"></div>
-                    <span>Beige</span>
-                </div>
-                <div class="color-item">
-                    <div class="color-circle color-green"></div>
-                    <span>Green</span>
-                </div>
-                <div class="color-item">
-                    <div class="color-circle color-burgundy"></div>
-                    <span>Maroon</span>
-                </div>
-            </div>
-        </div>
+</p>
 
-        <div class="rsvp-form-section">
-            <form id="rsvpForm" action="https://sheetdb.io/api/v1/hjv8z30hajglw" method="POST">
+<h1>
 
-                <!-- Name -->
-                <div class="form-group">
-                    <label class="form-label">Full Name</label>
-                    <input type="text" name="data[Pangalan]" class="form-control" placeholder="Ilagay ang buong pangalan" required>
-                </div>
+Jaztine
 
-                <!-- Confirmation -->
-                <div class="form-group">
-                    <label class="form-label">Attendance Confirmation</label>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="data[Kumpirmasyon]" value="Oo, Makakadalo Ako" checked>
-                            <div>
-                                <strong>Yes, I'll Attend</strong>
-                                <span class="option-desc">Looking forward to celebrating with you.</span>
-                            </div>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="data[Kumpirmasyon]" value="Hindi, Hindi Makakadalo">
-                            <div>
-                                <strong>Sorry, I Can't Attend</strong>
-                                <span class="option-desc">Thank you for inviting me.</span>
-                            </div>
-                        </label>
-                    </div>
-                </div>
+<br>
 
-                <!-- Message -->
-                <div class="form-group">
-                    <label class="form-label">Message (Optional)</label>
-                    <textarea name="data[Mensahe]" class="form-control" rows="4" placeholder="Mag-iwan ng mensahe para sa ikakasal..."></textarea>
-                </div>
+&
 
-                <button type="submit" class="submit-btn">Send RSVP</button>
-            </form>
-        </div>
-    </div>
+<br>
 
-    <script>
-        const form = document.getElementById("rsvpForm");
+Mary Ven
 
-        form.addEventListener("submit", async function (e) {
-            e.preventDefault();
+</h1>
 
-            const button = form.querySelector(".submit-btn");
-            const original = button.innerHTML;
+<p class="date">
 
-            button.disabled = true;
-            button.innerHTML = "Sending...";
+December 21, 2026
 
-            try {
-                // Save to SheetDB
-                const sheetResponse = await fetch(form.action, {
-                    method: "POST",
-                    body: new FormData(form)
-                });
+</p>
 
-                if (!sheetResponse.ok) {
-                    throw new Error("SheetDB Error");
-                }
+<a href="#gallery" class="button">
 
-                const name = form.querySelector('input[name="data[Pangalan]"]').value;
-                const confirmation = form.querySelector('input[name="data[Kumpirmasyon]"]:checked').value;
-                const message = form.querySelector('textarea[name="data[Mensahe]"]').value;
+View Invitation
 
-                // Backup Email
-                await fetch("https://api.web3forms.com/submit", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Accept: "application/json"
-                    },
-                    body: JSON.stringify({
-                        access_key: "d3b2d660-1e64-41f5-9071-b9a59f259515",
-                        subject: `Wedding RSVP - ${name}`,
-                        from_name: "Wedding RSVP",
-                        to_email: "jaztine.canoza@newlightcity.org",
-                        Pangalan: name,
-                        Kumpirmasyon: confirmation,
-                        Mensahe: message
-                    })
-                });
+</a>
 
-                button.innerHTML = "✓ RSVP Sent";
+</div>
 
-                setTimeout(() => {
-                    alert("Thank you! Your RSVP has been successfully submitted.");
-                    form.reset();
-                    button.disabled = false;
-                    button.innerHTML = original;
-                }, 800);
+<div class="scroll">
 
-            } catch (error) {
-                console.error(error);
-                alert("Unable to submit your RSVP. Please try again.");
-                button.disabled = false;
-                button.innerHTML = original;
-            }
-        });
-    </script>
+↓
+
+</div>
+
+</section>
+
+<section class="gallery" id="gallery">
+
+<h2>
+
+Our Love Story
+
+</h2>
+
+<img src="photo1.jpg" alt="Jaztine and Mary Ven">
+
+</section>
+
 </body>
-</html>
 
+</html>
