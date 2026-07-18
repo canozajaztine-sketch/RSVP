@@ -16,12 +16,10 @@
 :root{
 
 --green:#123A26;
---green-dark:#0D281A;
---beige:#D4C5B9;
+--burgundy:#7A1732;
 --champagne:#F7F3EE;
---burgundy:#800020;
 --white:#ffffff;
---shadow:0 20px 50px rgba(0,0,0,.18);
+--glass:rgba(255,255,255,.12);
 
 }
 
@@ -40,110 +38,11 @@ body{
 font-family:Montserrat,sans-serif;
 background:var(--champagne);
 overflow-x:hidden;
+color:#333;
 
 }
 
-/* ---------------- NAVIGATION ---------------- */
-
-nav{
-
-position:fixed;
-
-top:20px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:min(92%,1100px);
-
-padding:16px 30px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-border-radius:60px;
-
-background:rgba(255,255,255,.12);
-
-backdrop-filter:blur(18px);
-
-border:1px solid rgba(255,255,255,.25);
-
-z-index:1000;
-
-transition:.35s;
-
-}
-
-nav.scrolled{
-
-background:rgba(18,58,38,.85);
-
-}
-
-.logo{
-
-font-family:"Alex Brush",cursive;
-
-font-size:2rem;
-
-color:white;
-
-}
-
-nav ul{
-
-display:flex;
-
-list-style:none;
-
-gap:35px;
-
-}
-
-nav a{
-
-color:white;
-
-text-decoration:none;
-
-font-weight:500;
-
-position:relative;
-
-}
-
-nav a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-
-bottom:-6px;
-
-width:0;
-
-height:2px;
-
-background:white;
-
-transition:.3s;
-
-}
-
-nav a:hover::after{
-
-width:100%;
-
-}
-
-/* ---------------- HERO ---------------- */
+/* HERO */
 
 .hero{
 
@@ -161,23 +60,15 @@ text-align:center;
 
 overflow:hidden;
 
-background:url("untitled-design.png") center center/cover no-repeat;
-
-animation:heroZoom 22s linear infinite alternate;
-
-}
-
-.hero::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
 background:
-linear-gradient(rgba(0,0,0,.35),
-rgba(0,0,0,.55));
+linear-gradient(rgba(0,0,0,.28),rgba(0,0,0,.48)),
+url("untitled-design.png");
+
+background-size:cover;
+
+background-position:center;
+
+animation:heroZoom 25s ease-in-out infinite alternate;
 
 }
 
@@ -191,12 +82,10 @@ inset:0;
 
 background:
 radial-gradient(circle at top left,
-rgba(255,255,255,.12),
-transparent 40%),
+rgba(255,255,255,.15),
+transparent 40%);
 
-radial-gradient(circle at bottom right,
-rgba(255,255,255,.08),
-transparent 35%);
+pointer-events:none;
 
 }
 
@@ -204,31 +93,43 @@ transparent 35%);
 
 position:relative;
 
-z-index:5;
+z-index:10;
+
+width:min(92%,760px);
+
+padding:20px;
+
+animation:fadeUp 1.4s ease;
+
+transform:translateY(-35px);
 
 color:white;
-
-padding:25px;
-
-width:min(90%,800px);
-
-animation:fadeUp 1.5s ease;
-
-transform:translateY(-45px);
 
 }
 
 .invite{
 
-font-size:.8rem;
+font-size:.85rem;
 
 letter-spacing:4px;
 
 text-transform:uppercase;
 
-margin-bottom:20px;
+margin-bottom:18px;
 
 opacity:.95;
+
+}
+
+.subtitle{
+
+font-size:1rem;
+
+font-weight:300;
+
+line-height:1.8;
+
+margin-bottom:25px;
 
 }
 
@@ -236,39 +137,43 @@ opacity:.95;
 
 font-family:"Alex Brush",cursive;
 
-font-size:6.3rem;
+font-size:6rem;
+
+font-weight:400;
 
 line-height:.9;
 
-margin-bottom:20px;
+margin-bottom:22px;
 
-text-shadow:0 5px 25px rgba(0,0,0,.35);
-
-}
-
-.hero h1 span{
-
-display:block;
-
-font-size:3rem;
-
-margin:18px 0;
+text-shadow:0 10px 30px rgba(0,0,0,.35);
 
 }
 
 .date{
 
-font-size:1.05rem;
+font-size:1rem;
 
 letter-spacing:3px;
 
 margin-bottom:35px;
 
-opacity:.95;
+}
+
+.divider{
+
+width:110px;
+
+height:2px;
+
+background:rgba(255,255,255,.7);
+
+margin:0 auto 35px;
+
+border-radius:50px;
 
 }
 
-/* ---------------- BUTTON ---------------- */
+/* BUTTON */
 
 .hero-btn{
 
@@ -276,39 +181,87 @@ display:inline-flex;
 
 align-items:center;
 
-gap:12px;
+gap:10px;
 
-padding:16px 42px;
+padding:16px 38px;
 
 border-radius:60px;
 
 text-decoration:none;
 
-font-weight:600;
-
 color:white;
 
-background:rgba(255,255,255,.12);
+background:var(--glass);
 
-border:1px solid rgba(255,255,255,.25);
+backdrop-filter:blur(16px);
 
-backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.28);
 
 transition:.35s;
+
+font-weight:600;
 
 }
 
 .hero-btn:hover{
 
-transform:translateY(-3px);
-
 background:white;
 
 color:#222;
 
+transform:translateY(-3px);
+
 }
 
-/* ---------------- SCROLL ---------------- */
+/* COUNTDOWN */
+
+.countdown{
+
+margin-top:40px;
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:15px;
+
+}
+
+.box{
+
+padding:18px;
+
+background:var(--glass);
+
+border-radius:18px;
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.18);
+
+}
+
+.box h2{
+
+font-size:2rem;
+
+font-weight:700;
+
+}
+
+.box p{
+
+font-size:.75rem;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+margin-top:6px;
+
+}
+
+/* SCROLL */
 
 .scroll{
 
@@ -320,65 +273,51 @@ left:50%;
 
 transform:translateX(-50%);
 
-color:white;
-
 font-size:2rem;
+
+color:white;
 
 animation:bounce 2s infinite;
 
-z-index:5;
+}
+
+/* NEXT SECTION */
+
+#details{
+
+padding:110px 25px;
+
+background:white;
+
+text-align:center;
 
 }
 
-/* ---------------- COUNTDOWN ---------------- */
+.section-title{
 
-.countdown{
+font-family:"Alex Brush",cursive;
 
-margin-top:45px;
+font-size:3.5rem;
 
-display:grid;
+color:var(--green);
 
-grid-template-columns:repeat(4,1fr);
-
-gap:15px;
+margin-bottom:15px;
 
 }
 
-.count-box{
+.section-subtitle{
 
-background:rgba(255,255,255,.12);
+max-width:700px;
 
-border:1px solid rgba(255,255,255,.18);
+margin:auto;
 
-backdrop-filter:blur(18px);
+line-height:1.8;
 
-padding:18px;
-
-border-radius:18px;
+color:#666;
 
 }
 
-.count-box h2{
-
-font-size:2rem;
-
-font-weight:700;
-
-}
-
-.count-box p{
-
-font-size:.75rem;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-margin-top:5px;
-
-}
-
-/* ---------------- ANIMATIONS ---------------- */
+/* ANIMATIONS */
 
 @keyframes heroZoom{
 
@@ -410,7 +349,7 @@ to{
 
 opacity:1;
 
-transform:translateY(-45px);
+transform:translateY(-35px);
 
 }
 
@@ -432,39 +371,9 @@ transform:translate(-50%,10px);
 
 }
 
-/* ---------------- MOBILE ---------------- */
+/* MOBILE */
 
 @media(max-width:768px){
-
-nav{
-
-padding:15px 20px;
-
-}
-
-nav ul{
-
-display:none;
-
-}
-
-.hero h1{
-
-font-size:4.2rem;
-
-}
-
-.hero h1 span{
-
-font-size:2rem;
-
-}
-
-.countdown{
-
-grid-template-columns:repeat(2,1fr);
-
-}
 
 .hero-content{
 
@@ -472,34 +381,51 @@ transform:translateY(-20px);
 
 }
 
+.hero h1{
+
+font-size:4rem;
+
+}
+
+.subtitle{
+
+font-size:.9rem;
+
+}
+
+.countdown{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:12px;
+
+}
+
+.box{
+
+padding:16px;
+
+}
+
+.box h2{
+
+font-size:1.6rem;
+
+}
+
+.section-title{
+
+font-size:2.8rem;
+
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
-
-<nav>
-
-<div class="logo">
-
-J & M
-
-</div>
-
-<ul>
-
-<li><a href="#">Home</a></li>
-
-<li><a href="#">Details</a></li>
-
-<li><a href="#">Gallery</a></li>
-
-<li><a href="#">RSVP</a></li>
-
-</ul>
-
-</nav>
 
 <section class="hero">
 
@@ -507,15 +433,22 @@ J & M
 
 <p class="invite">
 
-Together with our Families
+Together with our beloved families
+
+</p>
+
+<p class="subtitle">
+
+joyfully invite you to celebrate our wedding
+as we begin a new chapter in God's love.
 
 </p>
 
 <h1>
 
-Jaztine
+Jaztine<br>
 
-<span>&</span>
+&amp;<br>
 
 Mary Ven
 
@@ -527,6 +460,8 @@ December 21, 2026 • 3:00 PM
 
 </p>
 
+<div class="divider"></div>
+
 <a href="#details" class="hero-btn">
 
 ♡ View Invitation
@@ -535,7 +470,7 @@ December 21, 2026 • 3:00 PM
 
 <div class="countdown">
 
-<div class="count-box">
+<div class="box">
 
 <h2 id="days">000</h2>
 
@@ -543,7 +478,7 @@ December 21, 2026 • 3:00 PM
 
 </div>
 
-<div class="count-box">
+<div class="box">
 
 <h2 id="hours">00</h2>
 
@@ -551,7 +486,7 @@ December 21, 2026 • 3:00 PM
 
 </div>
 
-<div class="count-box">
+<div class="box">
 
 <h2 id="minutes">00</h2>
 
@@ -559,7 +494,7 @@ December 21, 2026 • 3:00 PM
 
 </div>
 
-<div class="count-box">
+<div class="box">
 
 <h2 id="seconds">00</h2>
 
@@ -571,23 +506,36 @@ December 21, 2026 • 3:00 PM
 
 </div>
 
-<div class="scroll">
+<div class="scroll">↓</div>
 
-↓
+</section>
 
-</div>
+<section id="details">
+
+<h2 class="section-title">
+
+Our Wedding
+
+</h2>
+
+<p class="section-subtitle">
+
+Thank you for being part of one of the most important days of our lives.
+We can't wait to celebrate our love with you.
+
+</p>
 
 </section>
 
 <script>
 
-const wedding = new Date("December 21, 2026 15:00:00").getTime();
+const wedding=new Date("December 21, 2026 15:00:00").getTime();
 
 setInterval(()=>{
 
-const now = new Date().getTime();
+const now=new Date().getTime();
 
-const gap = wedding-now;
+const gap=wedding-now;
 
 const days=Math.floor(gap/(1000*60*60*24));
 
@@ -597,28 +545,12 @@ const minutes=Math.floor((gap%(1000*60*60))/(1000*60));
 
 const seconds=Math.floor((gap%(1000*60))/1000);
 
-document.getElementById("days").innerHTML=days;
-document.getElementById("hours").innerHTML=hours;
-document.getElementById("minutes").innerHTML=minutes;
-document.getElementById("seconds").innerHTML=seconds;
+document.getElementById("days").textContent=days;
+document.getElementById("hours").textContent=hours;
+document.getElementById("minutes").textContent=minutes;
+document.getElementById("seconds").textContent=seconds;
 
 },1000);
-
-window.addEventListener("scroll",()=>{
-
-const nav=document.querySelector("nav");
-
-if(window.scrollY>80){
-
-nav.classList.add("scrolled");
-
-}else{
-
-nav.classList.remove("scrolled");
-
-}
-
-});
 
 </script>
 
