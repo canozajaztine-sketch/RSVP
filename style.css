@@ -3295,6 +3295,463 @@ DESKTOP
 
 }
 /* =========================================================
+   RSVP MULTI-STEP UPDATE
+   Add below Part 4B
+========================================================= */
+
+/* ===========================
+PROGRESS BAR
+=========================== */
+
+.rsvp-progress{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    position:relative;
+
+    margin-bottom:45px;
+
+}
+
+.rsvp-progress::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    top:18px;
+
+    height:3px;
+
+    background:#e8e8e8;
+
+    z-index:1;
+
+}
+
+.progress-step{
+
+    position:relative;
+
+    z-index:2;
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:3px solid #dcdcdc;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:700;
+
+    color:#999;
+
+    transition:.35s;
+
+}
+
+.progress-step.active{
+
+    background:var(--primary);
+
+    border-color:var(--primary);
+
+    color:white;
+
+    box-shadow:
+
+        0 10px 25px rgba(33,66,51,.25);
+
+}
+
+/* ===========================
+STEP
+=========================== */
+
+.rsvp-step{
+
+    display:none;
+
+    animation:stepFade .45s ease;
+
+}
+
+.rsvp-step.active{
+
+    display:block;
+
+}
+
+@keyframes stepFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+STEP TITLE
+=========================== */
+
+.step-title{
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:var(--primary);
+
+    font-size:2.2rem;
+
+}
+
+.step-description{
+
+    text-align:center;
+
+    color:var(--gray);
+
+    margin-bottom:35px;
+
+    line-height:1.8;
+
+}
+
+/* ===========================
+BUTTON GROUP
+=========================== */
+
+.step-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:35px;
+
+}
+
+.step-buttons button{
+
+    flex:1;
+
+}
+
+/* ===========================
+PREVIOUS BUTTON
+=========================== */
+
+.prev-step{
+
+    background:white;
+
+    color:var(--primary);
+
+    border:2px solid var(--primary);
+
+    padding:16px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.prev-step:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+/* ===========================
+NEXT BUTTON
+=========================== */
+
+.next-step{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-light)
+    );
+
+    color:white;
+
+    border:none;
+
+    padding:16px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.next-step:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+        0 15px 35px rgba(33,66,51,.20);
+
+}
+
+/* ===========================
+ATTENDANCE OPTIONS
+=========================== */
+
+.attendance-options{
+
+    display:grid;
+
+    gap:20px;
+
+}
+
+.attendance-card{
+
+    position:relative;
+
+}
+
+.attendance-card input{
+
+    display:none;
+
+}
+
+.attendance-card label{
+
+    display:block;
+
+    cursor:pointer;
+
+    padding:24px;
+
+    border-radius:22px;
+
+    border:2px solid #ececec;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.attendance-card label:hover{
+
+    border-color:var(--gold);
+
+}
+
+.attendance-card input:checked + label{
+
+    border-color:var(--primary);
+
+    background:rgba(33,66,51,.05);
+
+    box-shadow:
+
+        0 15px 35px rgba(33,66,51,.10);
+
+}
+
+.attendance-card h3{
+
+    color:var(--primary);
+
+    margin-bottom:10px;
+
+}
+
+.attendance-card p{
+
+    color:var(--gray);
+
+    margin:0;
+
+}
+
+/* ===========================
+COUNTER
+=========================== */
+
+.counter-box{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:20px;
+
+    padding:20px;
+
+    background:#faf8f4;
+
+    border-radius:20px;
+
+}
+
+.counter-controls{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.counter-controls button{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+}
+
+.counter-controls span{
+
+    width:30px;
+
+    text-align:center;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+/* ===========================
+ERROR
+=========================== */
+
+.input-error{
+
+    border-color:#d9534f !important;
+
+}
+
+.error-message{
+
+    margin-top:8px;
+
+    color:#d9534f;
+
+    font-size:.85rem;
+
+}
+
+/* ===========================
+SUCCESS
+=========================== */
+
+.success-screen{
+
+    display:none;
+
+    text-align:center;
+
+    padding:50px 20px;
+
+}
+
+.success-screen.show{
+
+    display:block;
+
+}
+
+.success-screen h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:var(--primary);
+
+    font-size:2.7rem;
+
+    margin-bottom:15px;
+
+}
+
+.success-screen p{
+
+    color:var(--gray);
+
+    line-height:1.9;
+
+    margin-bottom:30px;
+
+}
+
+/* ===========================
+MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+    .step-buttons{
+
+        flex-direction:column;
+
+    }
+
+}
+/* =========================================================
    PART 5A
    FAQ SECTION
 ========================================================= */
