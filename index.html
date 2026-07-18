@@ -1,4 +1,4 @@
-<!-- PART 1 START -->
+no<!-- PART 1 START -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -3349,62 +3349,40 @@ Place this BEFORE </body>
 LIVE COUNTDOWN
 =========================== */
 
-const weddingDate = new Date("December 21, 2026 15:00:00").getTime();
+const weddingDate = new Date(2026, 11, 21, 15, 0, 0).getTime();
 
-const timer = setInterval(function(){
+function updateCountdown(){
 
-const now = new Date().getTime();
+const now = Date.now();
 
 const distance = weddingDate - now;
 
-if(distance < 0){
+if(distance <= 0){
 
-clearInterval(timer);
-
-document.getElementById("days").innerHTML="00";
-document.getElementById("hours").innerHTML="00";
-document.getElementById("minutes").innerHTML="00";
-document.getElementById("seconds").innerHTML="00";
+document.getElementById("days").textContent="00";
+document.getElementById("hours").textContent="00";
+document.getElementById("minutes").textContent="00";
+document.getElementById("seconds").textContent="00";
 
 return;
 
 }
 
-const days=Math.floor(distance/(1000*60*60*24));
+const days=Math.floor(distance/86400000);
+const hours=Math.floor((distance%86400000)/3600000);
+const minutes=Math.floor((distance%3600000)/60000);
+const seconds=Math.floor((distance%60000)/1000);
 
-const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-
-const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
-
-const seconds=Math.floor((distance%(1000*60))/1000);
-
-document.getElementById("days").innerHTML=days;
-document.getElementById("hours").innerHTML=hours;
-document.getElementById("minutes").innerHTML=minutes;
-document.getElementById("seconds").innerHTML=seconds;
-
-},1000);
-
-
-/* ===========================
-NAVBAR SCROLL EFFECT
-=========================== */
-
-window.addEventListener("scroll",function(){
-
-const navbar=document.getElementById("navbar");
-
-if(window.scrollY>80){
-
-navbar.classList.add("scrolled");
-
-}else{
-
-navbar.classList.remove("scrolled");
+document.getElementById("days").textContent=String(days).padStart(2,"0");
+document.getElementById("hours").textContent=String(hours).padStart(2,"0");
+document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");
+document.getElementById("seconds").textContent=String(seconds).padStart(2,"0");
 
 }
 
-});
+updateCountdown();
+
+setInterval(updateCountdown,1000);
 
 
 /* ===========================
