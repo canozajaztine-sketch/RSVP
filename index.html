@@ -2385,10 +2385,8 @@ Guest Reminders
 
 </section>
 
-<!-- END PART 3B -->
-    <!-- =========================================
-PART 3C — PREMIUM RSVP
-Replace your current RSVP section with this.
+<!-- =========================================
+PART 3C — PREMIUM RSVP (PART A)
 ========================================= -->
 
 <section id="rsvp">
@@ -2432,181 +2430,166 @@ z-index:2;
 }
 
 .rsvp-card{
-
 background:rgba(255,255,255,.12);
-
 backdrop-filter:blur(20px);
-
 border:1px solid rgba(255,255,255,.18);
-
 padding:60px;
-
 border-radius:35px;
-
 box-shadow:0 25px 60px rgba(0,0,0,.20);
-
 }
 
 .rsvp-title{
-
 font-family:'Cormorant Garamond',serif;
 font-size:3.5rem;
 text-align:center;
 color:white;
 margin-bottom:15px;
-
 }
 
 .rsvp-subtitle{
-
 text-align:center;
 color:rgba(255,255,255,.85);
 line-height:2;
 margin-bottom:45px;
-
 }
 
 .deadline{
-
 display:flex;
 justify-content:center;
 margin-bottom:45px;
-
 }
 
 .deadline span{
-
 background:#D4AF37;
-
 color:white;
-
 padding:12px 28px;
-
 border-radius:40px;
-
 font-weight:600;
-
 letter-spacing:.5px;
-
 }
 
 .form-group{
-
 margin-bottom:25px;
-
 }
 
 .form-group label{
-
 display:block;
-
 margin-bottom:10px;
-
 font-weight:600;
-
 color:white;
-
 }
 
 .form-control{
-
 width:100%;
-
 padding:16px 20px;
-
 border-radius:15px;
-
 border:none;
-
-font-size:15px;
-
 outline:none;
-
+font-size:15px;
 font-family:Montserrat,sans-serif;
-
 }
 
 textarea.form-control{
-
 resize:vertical;
 min-height:140px;
-
 }
 
 .form-row{
-
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:20px;
+}
 
+#familyContainer{
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.family-input{
+display:flex;
+gap:10px;
+}
+
+.family-input input{
+flex:1;
+}
+
+.remove-member{
+width:50px;
+border:none;
+border-radius:12px;
+background:#d9534f;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+.add-member{
+margin-top:15px;
+padding:14px 20px;
+border:none;
+border-radius:15px;
+background:white;
+color:#214233;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+.add-member:hover{
+transform:translateY(-3px);
 }
 
 .submit-btn{
-
 width:100%;
-
-margin-top:10px;
-
+margin-top:25px;
 padding:18px;
-
 background:#D4AF37;
-
 color:white;
-
 font-size:17px;
-
 font-weight:700;
-
 border:none;
-
 border-radius:50px;
-
 cursor:pointer;
-
 transition:.35s;
-
 }
 
 .submit-btn:hover{
-
 transform:translateY(-4px);
-
 background:#c59d22;
-
 }
 
 .small-note{
-
 margin-top:25px;
-
 text-align:center;
-
 color:rgba(255,255,255,.75);
-
 font-size:.9rem;
-
 line-height:1.8;
-
 }
 
 @media(max-width:768px){
 
 .rsvp-card{
-
 padding:35px;
-
 }
 
 .form-row{
-
 grid-template-columns:1fr;
-
 }
 
 .rsvp-title{
-
 font-size:2.8rem;
+}
 
+.family-input{
+flex-direction:column;
+}
+
+.remove-member{
+width:100%;
+height:45px;
 }
 
 }
@@ -2618,47 +2601,28 @@ font-size:2.8rem;
 <div class="rsvp-card">
 
 <h2 class="rsvp-title">
-
 RSVP
-
 </h2>
 
 <p class="rsvp-subtitle">
-
 We can't wait to celebrate this special day with you. Kindly let us know if you'll be joining us by completing the form below.
-
 </p>
 
 <div class="deadline">
-
 <span>
-
 RSVP Deadline • October 24, 2026
-
 </span>
-
 </div>
 
-<form
-action="https://api.web3forms.com/submit"
-method="POST">
-
-<input
-type="hidden"
-name="access_key"
-value="YOUR_WEB3FORMS_ACCESS_KEY">
+<form id="rsvpForm">
 
 <div class="form-group">
 
-<label>
-
-Full Name
-
-</label>
+<label>Full Name</label>
 
 <input
 type="text"
-name="name"
+name="full_name"
 class="form-control"
 required>
 
@@ -2668,45 +2632,46 @@ required>
 
 <div class="form-group">
 
-<label>
-
-Will you attend?
-
-</label>
+<label>Will you attend?</label>
 
 <select
+id="attendance"
 name="attendance"
 class="form-control"
 required>
 
-<option value="Accepts with Pleasure">
-Accepts with Pleasure
+<option value="">Select</option>
+
+<option value="Accept">
+Joyfully Accepts
 </option>
 
-<option value="Declines with Regret">
-Declines with Regret
+<option value="Decline">
+Regretfully Declines
 </option>
 
 </select>
 
 </div>
 
-<div class="form-group">
+<div class="form-group" id="typeGroup" style="display:none;">
 
-<label>
-
-Number of Guests
-
-</label>
+<label>Who will attend?</label>
 
 <select
-name="guests"
+id="rsvp_type"
+name="rsvp_type"
 class="form-control">
 
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
+<option value="">Select</option>
+
+<option value="Just Me">
+Just Me
+</option>
+
+<option value="Family">
+Me & My Family
+</option>
 
 </select>
 
@@ -2714,28 +2679,28 @@ class="form-control">
 
 </div>
 
-<div class="form-group">
+<div
+id="familySection"
+style="display:none;">
 
-<label>
+<div id="familyContainer"></div>
 
-Dietary Restrictions (Optional)
+<button
+type="button"
+class="add-member"
+id="addFamily">
 
-</label>
+<i class="fa-solid fa-plus"></i>
 
-<input
-type="text"
-name="diet"
-class="form-control">
+Add Family Member
+
+</button>
 
 </div>
 
 <div class="form-group">
 
-<label>
-
-Message for the Couple
-
-</label>
+<label>Message for the Couple</label>
 
 <textarea
 name="message"
@@ -2755,8 +2720,7 @@ Submit RSVP
 </button>
 
 </form>
-
-<div class="small-note">
+    <div class="small-note">
 
 Thank you for celebrating with us. Your presence means more to us than words can express.
 
@@ -2765,6 +2729,167 @@ Thank you for celebrating with us. Your presence means more to us than words can
 </div>
 
 </div>
+
+<script>
+
+const attendance=document.getElementById("attendance");
+const typeGroup=document.getElementById("typeGroup");
+const rsvpType=document.getElementById("rsvp_type");
+const familySection=document.getElementById("familySection");
+const familyContainer=document.getElementById("familyContainer");
+const addFamily=document.getElementById("addFamily");
+const form=document.getElementById("rsvpForm");
+
+attendance.addEventListener("change",()=>{
+
+if(attendance.value==="Accept"){
+
+typeGroup.style.display="block";
+
+}else{
+
+typeGroup.style.display="none";
+familySection.style.display="none";
+familyContainer.innerHTML="";
+rsvpType.value="";
+
+}
+
+});
+
+rsvpType.addEventListener("change",()=>{
+
+familyContainer.innerHTML="";
+
+if(rsvpType.value===""){
+
+familySection.style.display="none";
+return;
+
+}
+
+familySection.style.display="block";
+
+if(rsvpType.value==="Just Me"){
+
+createMemberInput("Your Name");
+
+}
+
+if(rsvpType.value==="Family"){
+
+createMemberInput("Family Member");
+
+}
+
+});
+
+addFamily.addEventListener("click",()=>{
+
+if(rsvpType.value==="Family"){
+
+createMemberInput("Family Member");
+
+}
+
+});
+
+function createMemberInput(label){
+
+const wrapper=document.createElement("div");
+wrapper.className="family-input";
+
+const input=document.createElement("input");
+input.type="text";
+input.placeholder=label;
+input.className="form-control family-name";
+
+const remove=document.createElement("button");
+remove.type="button";
+remove.className="remove-member";
+remove.innerHTML='<i class="fa-solid fa-xmark"></i>';
+
+remove.onclick=function(){
+
+wrapper.remove();
+
+}
+
+wrapper.appendChild(input);
+
+if(rsvpType.value==="Family"){
+
+wrapper.appendChild(remove);
+
+}
+
+familyContainer.appendChild(wrapper);
+
+}
+
+form.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const members=[];
+
+document.querySelectorAll(".family-name").forEach(function(input){
+
+if(input.value.trim()!==""){
+
+members.push(input.value.trim());
+
+}
+
+});
+
+fetch("https://sheetdb.io/api/v1/hjv8z30hajglw",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+data:{
+full_name:form.full_name.value,
+attendance:form.attendance.value,
+rsvp_type:form.rsvp_type.value,
+family_members:members.join(", "),
+message:form.message.value
+}
+
+})
+
+})
+
+.then(res=>res.json())
+
+.then(data=>{
+
+alert("Thank you! Your RSVP has been received ❤️");
+
+form.reset();
+
+familyContainer.innerHTML="";
+familySection.style.display="none";
+typeGroup.style.display="none";
+
+})
+
+.catch(error=>{
+
+console.error(error);
+
+alert("Something went wrong. Please try again.");
+
+});
+
+});
+
+</script>
 
 </section>
 
