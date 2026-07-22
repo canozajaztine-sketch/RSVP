@@ -91,6 +91,32 @@ SCROLLBAR
 
 }
 
+.story-chapter{
+
+    margin-bottom:80px;
+
+}
+
+.story-chapter:last-child{
+
+    margin-bottom:0;
+
+}
+.section-header{
+
+    margin-bottom:60px;
+
+}
+@media(max-width:768px){
+
+    .section{
+
+        padding:90px 20px;
+
+    }
+
+}
+
 
 /* ===========================
 IMAGES
