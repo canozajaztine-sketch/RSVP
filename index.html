@@ -925,7 +925,7 @@
                 id="guestTypeGroup">
 
                 <label>
-                    Who will be attending?
+                    Who's coming with you?
                 </label>
 
                 <div class="attendance-options">
@@ -956,14 +956,14 @@
                             type="radio"
                             id="family"
                             name="data[Guest Type]"
-                            value="Me & My Invited Family">
+                            value="Me & My Family">
 
                         <label for="family">
 
-                            <h3>👨‍👩‍👧 Me & My Invited Family</h3>
+                            <h3>👨‍👩‍👧 Me & My Family</h3>
 
                             <p>
-                                Please list only the family members included in your invitation.
+                                Please list the family members who will be attending.
                             </p>
 
                         </label>
@@ -986,17 +986,22 @@
 
                 <div id="familyMembers">
 
-                    <input
-                        class="form-control family-member"
-                        type="text"
-                        placeholder="Family Member Name">
+                    <div class="family-member-wrapper">
+
+                        <input
+                            class="form-control family-member"
+                            type="text"
+                            placeholder="Family Member Name">
+
+                    </div>
 
                 </div>
 
                 <button
                     type="button"
                     class="btn-outline"
-                    id="addMember">
+                    id="addMember"
+                    aria-label="Add another family member">
 
                     + Add Family Member
 
@@ -1060,17 +1065,17 @@
 
             <h2>
 
-                Thank You!
+                Thank You for Your RSVP!
 
             </h2>
 
             <p>
 
-                Your RSVP has been received successfully.
+                We're so excited to celebrate our special day with you!
 
                 <br><br>
 
-                We can't wait to celebrate with you on
+                See you on
 
                 <strong>December 21, 2026.</strong>
 
@@ -1080,7 +1085,7 @@
                 href="#home"
                 class="btn">
 
-                Back to Invitation
+                Back to Top
 
             </a>
 
@@ -1089,7 +1094,6 @@
     </div>
 
 </section>
-
 <!-- ==========================
      FAQ
      (Part 5 Next)
