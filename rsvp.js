@@ -1,6 +1,6 @@
 /* ==========================================================
    rsvp.js
-   Wedding RSVP
+   PART 1 - Form Logic & Family Members
 ========================================================== */
 
 (() => {
@@ -54,24 +54,19 @@
 
     function updateForm() {
 
-        // Hide everything by default
         guestTypeGroup.classList.add("hidden");
         familyMembersGroup.classList.add("hidden");
 
         onlyMe.required = false;
         family.required = false;
 
-        // Declined
         if (decline.checked) {
 
             onlyMe.checked = false;
             family.checked = false;
 
-            return;
-
         }
 
-        // Accepted
         if (accept.checked) {
 
             guestTypeGroup.classList.remove("hidden");
@@ -81,7 +76,6 @@
 
         }
 
-        // Family selected
         if (family.checked) {
 
             familyMembersGroup.classList.remove("hidden");
@@ -101,31 +95,109 @@
     family.addEventListener("change", updateForm);
 
     // ======================================================
+    // Create Remove Button
+    // ======================================================
+
+    function createRemoveButton(wrapper) {
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+
+        button.className = "remove-member";
+
+        button.setAttribute(
+            "aria-label",
+            "Remove family member"
+        );
+
+        button.innerHTML =
+            '<i class="fa-solid fa-trash"></i>';
+
+        button.addEventListener("click", () => {
+
+            wrapper.remove();
+
+        });
+
+        return button;
+
+    }
+
+    // ======================================================
     // Add Family Member
     // ======================================================
 
     addMemberBtn.addEventListener("click", () => {
 
+        const wrapper = document.createElement("div");
+
+        wrapper.className =
+            "family-member-wrapper";
+
         const input = document.createElement("input");
 
         input.type = "text";
 
-        input.placeholder = "Family Member Name";
+        input.placeholder =
+            "Family Member Name";
 
         input.className =
-            "form-control family-member";
+            "family-member";
 
-        familyMembersContainer.appendChild(input);
+        wrapper.appendChild(input);
+
+        wrapper.appendChild(
+            createRemoveButton(wrapper)
+        );
+
+        familyMembersContainer.appendChild(wrapper);
+
+        input.focus();
 
     });
 
     // ======================================================
+    // Validation
+    // ======================================================
+
+    function validateFamilyMembers() {
+
+        if (!family.checked) {
+
+            return true;
+
+        }
+
+        const members =
+            [...document.querySelectorAll(".family-member")];
+
+        return members.some(member =>
+            member.value.trim() !== ""
+        );
+
+    }
+       // ======================================================
     // Submit
     // ======================================================
 
     form.addEventListener("submit", async (e) => {
 
         e.preventDefault();
+
+        if (!validateFamilyMembers()) {
+
+            alert(
+                "Please enter at least one family member."
+            );
+
+            familyMembersContainer
+                .querySelector(".family-member")
+                .focus();
+
+            return;
+
+        }
 
         // Combine family members
 
@@ -162,7 +234,41 @@
 
             }
 
+            // Reset form
+
             form.reset();
+
+            // Remove extra family member fields
+
+            const wrappers =
+                familyMembersContainer.querySelectorAll(
+                    ".family-member-wrapper"
+                );
+
+            wrappers.forEach((wrapper, index) => {
+
+                if (index > 0) {
+
+                    wrapper.remove();
+
+                }
+
+            });
+
+            // Clear first input
+
+            const firstInput =
+                familyMembersContainer.querySelector(
+                    ".family-member"
+                );
+
+            if (firstInput) {
+
+                firstInput.value = "";
+
+            }
+
+            hiddenMembers.value = "";
 
             updateForm();
 
@@ -170,14 +276,28 @@
 
             successScreen.classList.add("show");
 
+            successScreen.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "center"
+
+            });
+
             if (typeof confetti === "function") {
 
                 confetti({
-                    particleCount: 150,
-                    spread: 70,
+
+                    particleCount: 180,
+
+                    spread: 80,
+
                     origin: {
+
                         y: 0.6
+
                     }
+
                 });
 
             }
@@ -193,6 +313,7 @@
             submitButton.disabled = false;
 
             btnText.classList.remove("hidden");
+
             btnLoader.classList.add("hidden");
 
         }
@@ -206,3 +327,5 @@
     updateForm();
 
 })();
+   
+   
