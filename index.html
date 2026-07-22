@@ -683,7 +683,7 @@
                 <div class="dress-color burgundy"></div>
 
                 <h3>Burgundy</h3>
-
+<br>
             </div>
 
             <div class="dress-card fade-up">
@@ -691,7 +691,7 @@
                 <div class="dress-color champagne"></div>
 
                 <h3>Champagne</h3>
-
+<br>
             </div>
 
             <div class="dress-card fade-up">
@@ -699,7 +699,7 @@
                 <div class="dress-color beige"></div>
 
                 <h3>Beige</h3>
-
+<br>
             </div>
 
             <div class="dress-card fade-up">
@@ -805,12 +805,7 @@
 
             <div class="location-map fade-right">
 
-                <iframe
-                    src="https://www.google.com/maps?q=New+Light+City+Church+Tanawan+Bustos+Bulacan&output=embed"
-                    loading="lazy"
-                    allowfullscreen
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+        
 
             </div>
 
@@ -831,207 +826,270 @@
         <div class="section-header">
 
             <span class="section-subtitle">
-
                 RSVP
-
             </span>
 
             <h2>
-
                 Kindly Let Us Know
+            </h2>
+
+            <p>
+                Please respond on or before
+                <strong>October 24, 2026</strong>.
+            </p>
+
+        </div>
+
+        <form
+            id="rsvpForm"
+            action="https://sheetdb.io/api/v1/hjv8z30hajglw"
+            method="POST"
+            autocomplete="off">
+
+            <!-- Full Name -->
+
+            <div class="form-group">
+
+                <label for="fullName">
+                    Full Name *
+                </label>
+
+                <input
+                    id="fullName"
+                    type="text"
+                    name="data[Name]"
+                    placeholder="Enter your full name"
+                    required>
+
+            </div>
+
+            <!-- Attendance -->
+
+            <div class="form-group">
+
+                <label>
+                    Will you attend? *
+                </label>
+
+                <div class="attendance-options">
+
+                    <div class="attendance-card">
+
+                        <input
+                            type="radio"
+                            id="accept"
+                            name="data[Attendance]"
+                            value="Happily Accepts"
+                            required>
+
+                        <label for="accept">
+
+                            <h3>❤️ Happily Accepts</h3>
+
+                            <p>
+                                I can't wait to celebrate with you.
+                            </p>
+
+                        </label>
+
+                    </div>
+
+                    <div class="attendance-card">
+
+                        <input
+                            type="radio"
+                            id="decline"
+                            name="data[Attendance]"
+                            value="Regretfully Declines">
+
+                        <label for="decline">
+
+                            <h3>😔 Regretfully Declines</h3>
+
+                            <p>
+                                Sorry, I won't be able to attend.
+                            </p>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Guest Type -->
+
+            <div
+                class="form-group hidden"
+                id="guestTypeGroup">
+
+                <label>
+                    Who will be attending?
+                </label>
+
+                <div class="attendance-options">
+
+                    <div class="attendance-card">
+
+                        <input
+                            type="radio"
+                            id="me"
+                            name="data[Guest Type]"
+                            value="Only Me">
+
+                        <label for="me">
+
+                            <h3>🙋 Only Me</h3>
+
+                            <p>
+                                I will attend by myself.
+                            </p>
+
+                        </label>
+
+                    </div>
+
+                    <div class="attendance-card">
+
+                        <input
+                            type="radio"
+                            id="family"
+                            name="data[Guest Type]"
+                            value="Me & My Invited Family">
+
+                        <label for="family">
+
+                            <h3>👨‍👩‍👧 Me & My Invited Family</h3>
+
+                            <p>
+                                Please list only the family members included in your invitation.
+                            </p>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Family Members -->
+
+            <div
+                class="form-group hidden"
+                id="familyMembersGroup">
+
+                <label>
+                    Family Members
+                </label>
+
+                <div id="familyMembers">
+
+                    <input
+                        class="form-control family-member"
+                        type="text"
+                        placeholder="Family Member Name">
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-outline"
+                    id="addMember">
+
+                    + Add Family Member
+
+                </button>
+
+                <!-- Hidden field for SheetDB -->
+
+                <input
+                    type="hidden"
+                    id="familyMembersHidden"
+                    name="data[Family Members]">
+
+            </div>
+
+            <!-- Message -->
+
+            <div class="form-group">
+
+                <label for="message">
+                    Message (Optional)
+                </label>
+
+                <textarea
+                    id="message"
+                    name="data[Message]"
+                    rows="5"
+                    placeholder="Leave us a message..."></textarea>
+
+            </div>
+
+            <!-- Submit -->
+
+            <button
+                type="submit"
+                class="btn"
+                id="submitBtn">
+
+                <span class="btn-text">
+
+                    Confirm RSVP
+
+                </span>
+
+                <span class="btn-loader hidden">
+
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+
+                    Submitting...
+
+                </span>
+
+            </button>
+
+        </form>
+
+        <!-- Success Screen -->
+
+        <div class="success-screen">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h2>
+
+                Thank You!
 
             </h2>
 
             <p>
 
-                Please respond on or before
-                <strong>October 24, 2026</strong>.
+                Your RSVP has been received successfully.
+
+                <br><br>
+
+                We can't wait to celebrate with you on
+
+                <strong>December 21, 2026.</strong>
 
             </p>
 
-        </div>
+            <a
+                href="#home"
+                class="btn">
 
-        <form id="rsvpForm">
+                Back to Invitation
 
-    <h3 class="step-title">
-        RSVP
-    </h3>
-
-    <p class="step-description">
-        Kindly respond on or before
-        <strong>October 24, 2026</strong>.
-    </p>
-
-    <!-- Guest Name -->
-
-    <div class="form-group">
-
-        <label>Full Name *</label>
-
-        <input
-            type="text"
-            name="data[Name]"
-            placeholder="Enter your full name"
-            required>
-
-    </div>
-
-    <!-- Attendance -->
-
-    <div class="form-group">
-
-        <label>Will you attend? *</label>
-
-        <div class="attendance-options">
-
-            <div class="attendance-card">
-
-                <input
-                    type="radio"
-                    id="accept"
-                    name="data[Attendance]"
-                    value="Happily Accepts"
-                    required>
-
-                <label for="accept">
-
-                    <h3>❤️ Happily Accepts</h3>
-
-                    <p>I can't wait to celebrate with you.</p>
-
-                </label>
-
-            </div>
-
-            <div class="attendance-card">
-
-                <input
-                    type="radio"
-                    id="decline"
-                    name="data[Attendance]"
-                    value="Regretfully Declines">
-
-                <label for="decline">
-
-                    <h3>😔 Regretfully Declines</h3>
-
-                    <p>Sorry, I won't be able to attend.</p>
-
-                </label>
-
-            </div>
+            </a>
 
         </div>
 
     </div>
 
-    <!-- Only show when YES -->
+</section>
 
-    <div
-        class="form-group"
-        id="guestTypeGroup"
-        style="display:none;">
-
-        <label>Who will be attending?</label>
-
-        <div class="attendance-options">
-
-            <div class="attendance-card">
-
-                <input
-                    type="radio"
-                    id="me"
-                    name="data[Guest Type]"
-                    value="Only Me">
-
-                <label for="me">
-
-                    <h3>🙋 Only Me</h3>
-
-                </label>
-
-            </div>
-
-            <div class="attendance-card">
-
-                <input
-                    type="radio"
-                    id="family"
-                    name="data[Guest Type]"
-                    value="Me & My Invited Family">
-
-                <label for="family">
-
-                    <h3>👨‍👩‍👧 Me & Family</h3>
-
-                    <p>Please list the family members.</p>
-
-                </label>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- Only show when FAMILY -->
-
-    <div
-        class="form-group"
-        id="familyMembersGroup"
-        style="display:none;">
-
-        <label>Family Members</label>
-
-        <div id="familyMembers">
-
-            <input
-                class="form-control family-member"
-                type="text"
-                placeholder="Family Member Name">
-
-        </div>
-
-        <button
-            type="button"
-            class="btn-outline"
-            id="addMember">
-
-            + Add Family Member
-
-        </button>
-
-        <!-- Hidden field for SheetDB -->
-
-        <input
-            type="hidden"
-            name="data[Family Members]"
-            id="familyMembersHidden">
-
-    </div>
-
-    <!-- Message -->
-
-    <div class="form-group">
-
-        <label>Message (Optional)</label>
-
-        <textarea
-            name="data[Message]"
-            rows="4"
-            placeholder="Leave us a message..."></textarea>
-
-    </div>
-
-    <button
-        type="submit"
-        class="btn">
-
-        Confirm RSVP
-
-    </button>
-
-</form>
 <!-- ==========================
      FAQ
      (Part 5 Next)
