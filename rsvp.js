@@ -1,207 +1,174 @@
 /* ==========================================================
    rsvp.js
-   Part 1
-   Multi-Step RSVP Form
+   Wedding RSVP
 ========================================================== */
 
 (() => {
 
     "use strict";
 
-    // ======================================================
-    // Elements
-    // ======================================================
-
     const form = document.getElementById("rsvpForm");
 
     if (!form) return;
 
-    const steps = [...document.querySelectorAll(".rsvp-step")];
+    const accept = document.getElementById("accept");
+    const decline = document.getElementById("decline");
 
-    const progressItems = [
-        ...document.querySelectorAll(".progress-step")
-    ];
+    const onlyMe = document.getElementById("me");
+    const family = document.getElementById("family");
 
-    const nextButtons = [
-        ...document.querySelectorAll(".next-step")
-    ];
+    const guestTypeGroup =
+        document.getElementById("guestTypeGroup");
 
-    const prevButtons = [
-        ...document.querySelectorAll(".prev-step")
-    ];
+    const familyMembersGroup =
+        document.getElementById("familyMembersGroup");
 
-    let currentStep = 0;
+    const familyMembersContainer =
+        document.getElementById("familyMembers");
 
-    // ======================================================
-    // Show Step
-    // ======================================================
+    const addMemberBtn =
+        document.getElementById("addMember");
 
-    function showStep(index) {
+    const hiddenMembers =
+        document.getElementById("familyMembersHidden");
 
-        steps.forEach((step, i) => {
+    const successScreen =
+        document.querySelector(".success-screen");
 
-            step.classList.toggle(
-                "active",
-                i === index
-            );
+    /* ==========================================
+       Initial State
+    ========================================== */
 
-        });
+    guestTypeGroup.classList.add("hidden");
+    familyMembersGroup.classList.add("hidden");
 
-        progressItems.forEach((item, i) => {
+    /* ==========================================
+       Attendance
+    ========================================== */
 
-            if (i <= index) {
+    accept.addEventListener("change", () => {
 
-                item.classList.add("active");
-
-            } else {
-
-                item.classList.remove("active");
-
-            }
-
-        });
-
-    }
-
-    // ======================================================
-    // Validation
-    // ======================================================
-
-    function validateStep(index) {
-
-        const current = steps[index];
-
-        const requiredFields =
-            current.querySelectorAll("[required]");
-
-        for (const field of requiredFields) {
-
-            // Radio buttons
-            if (field.type === "radio") {
-
-                const radios =
-                    current.querySelectorAll(
-                        `input[name="${field.name}"]`
-                    );
-
-                const checked =
-                    [...radios].some(
-                        radio => radio.checked
-                    );
-
-                if (!checked) {
-
-                    alert("Please select an option.");
-
-                    return false;
-
-                }
-
-                continue;
-
-            }
-
-            // Text fields
-            if (!field.value.trim()) {
-
-                field.focus();
-
-                alert("Please complete all required fields.");
-
-                return false;
-
-            }
-
-        }
-
-        return true;
-
-    }
-
-    // ======================================================
-    // Next Buttons
-    // ======================================================
-
-    nextButtons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            if (!validateStep(currentStep)) {
-
-                return;
-
-            }
-
-            if (currentStep < steps.length - 1) {
-
-                currentStep++;
-
-                showStep(currentStep);
-
-                window.scrollTo({
-
-                    top: form.offsetTop - 40,
-
-                    behavior: "smooth"
-
-                });
-
-            }
-
-        });
+        guestTypeGroup.classList.remove("hidden");
 
     });
 
-    // ======================================================
-    // Previous Buttons
-    // ======================================================
+    decline.addEventListener("change", () => {
 
-    prevButtons.forEach(button => {
+        guestTypeGroup.classList.add("hidden");
 
-        button.addEventListener("click", () => {
+        familyMembersGroup.classList.add("hidden");
 
-            if (currentStep > 0) {
-
-                currentStep--;
-
-                showStep(currentStep);
-
-                window.scrollTo({
-
-                    top: form.offsetTop - 40,
-
-                    behavior: "smooth"
-
-                });
-
-            }
-
-        });
+        onlyMe.checked = false;
+        family.checked = false;
 
     });
 
-    // ======================================================
-    // Prevent Submit
-    // ======================================================
+    /* ==========================================
+       Guest Type
+    ========================================== */
 
-    form.addEventListener("submit", e => {
+    onlyMe.addEventListener("change", () => {
+
+        familyMembersGroup.classList.add("hidden");
+
+    });
+
+    family.addEventListener("change", () => {
+
+        familyMembersGroup.classList.remove("hidden");
+
+    });
+
+    /* ==========================================
+       Add Family Member
+    ========================================== */
+
+    addMemberBtn.addEventListener("click", () => {
+
+        const input =
+            document.createElement("input");
+
+        input.type = "text";
+
+        input.placeholder = "Family Member Name";
+
+        input.className =
+            "form-control family-member";
+
+        familyMembersContainer.appendChild(input);
+
+    });
+
+    /* ==========================================
+       Submit
+    ========================================== */
+
+    form.addEventListener("submit", async (e) => {
 
         e.preventDefault();
 
-        if (!validateStep(currentStep)) {
+        const members =
+            [...document.querySelectorAll(".family-member")];
 
-            return;
+        hiddenMembers.value =
+            members
+            .map(member => member.value.trim())
+            .filter(Boolean)
+            .join(", ");
+
+        const submitButton =
+            form.querySelector('button[type="submit"]');
+
+        const originalText =
+            submitButton.innerHTML;
+
+        submitButton.disabled = true;
+
+        submitButton.innerHTML =
+            "Submitting...";
+
+        try {
+
+            const response =
+                await fetch(form.action, {
+
+                    method: "POST",
+
+                    body: new FormData(form)
+
+                });
+
+            if (!response.ok) {
+
+                throw new Error();
+
+            }
+
+            form.style.display = "none";
+
+            successScreen.classList.add("show");
+
+            if (typeof confetti === "function") {
+
+                confetti();
+
+            }
 
         }
 
-        console.log("Ready for SheetDB...");
+        catch (error) {
+
+            alert(
+                "Unable to submit your RSVP. Please try again."
+            );
+
+            submitButton.disabled = false;
+
+            submitButton.innerHTML =
+                originalText;
+
+        }
 
     });
-
-    // ======================================================
-    // Initialize
-    // ======================================================
-
-    showStep(currentStep);
 
 })();
