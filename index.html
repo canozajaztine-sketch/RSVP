@@ -853,304 +853,185 @@
 
         <form id="rsvpForm">
 
-            <!-- Progress -->
+    <h3 class="step-title">
+        RSVP
+    </h3>
 
-            <div class="rsvp-progress">
+    <p class="step-description">
+        Kindly respond on or before
+        <strong>October 24, 2026</strong>.
+    </p>
 
-                <div class="progress-step active">1</div>
+    <!-- Guest Name -->
 
-                <div class="progress-step">2</div>
+    <div class="form-group">
 
-                <div class="progress-step">3</div>
+        <label>Full Name *</label>
 
-                <div class="progress-step">4</div>
+        <input
+            type="text"
+            name="data[Name]"
+            placeholder="Enter your full name"
+            required>
 
-            </div>
+    </div>
 
-            <!-- STEP 1 -->
+    <!-- Attendance -->
 
-            <div class="rsvp-step active">
+    <div class="form-group">
 
-                <h3 class="step-title">
+        <label>Will you attend? *</label>
 
-                    Guest Information
+        <div class="attendance-options">
 
-                </h3>
+            <div class="attendance-card">
 
-                <p class="step-description">
+                <input
+                    type="radio"
+                    id="accept"
+                    name="data[Attendance]"
+                    value="Happily Accepts"
+                    required>
 
-                    Tell us a little about yourself.
+                <label for="accept">
 
-                </p>
+                    <h3>❤️ Happily Accepts</h3>
 
-                <div class="form-group">
+                    <p>I can't wait to celebrate with you.</p>
 
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Full Name"
-                        required>
-
-                </div>
-
-                <div class="form-group">
-
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email Address">
-
-                </div>
-
-                <div class="form-group">
-
-                    <input
-                        type="tel"
-                        name="phone"
-                        placeholder="Mobile Number">
-
-                </div>
-
-                <div class="step-buttons">
-
-                    <button
-                        type="button"
-                        class="next-step">
-
-                        Next
-
-                    </button>
-
-                </div>
+                </label>
 
             </div>
 
-            <!-- STEP 2 -->
+            <div class="attendance-card">
 
-            <div class="rsvp-step">
+                <input
+                    type="radio"
+                    id="decline"
+                    name="data[Attendance]"
+                    value="Regretfully Declines">
 
-                <h3 class="step-title">
+                <label for="decline">
 
-                    Will You Attend?
+                    <h3>😔 Regretfully Declines</h3>
 
-                </h3>
+                    <p>Sorry, I won't be able to attend.</p>
 
-                <p class="step-description">
-
-                    We hope to celebrate with you.
-
-                </p>
-
-                <div class="attendance-options">
-
-                    <div class="attendance-card">
-
-                        <input
-                            type="radio"
-                            id="accept"
-                            name="attendance"
-                            value="Accepts"
-                            required>
-
-                        <label for="accept">
-
-                            <h3>
-
-                                Happily Accepts
-
-                            </h3>
-
-                            <p>
-
-                                I will be there.
-
-                            </p>
-
-                        </label>
-
-                    </div>
-
-                    <div class="attendance-card">
-
-                        <input
-                            type="radio"
-                            id="decline"
-                            name="attendance"
-                            value="Declines">
-
-                        <label for="decline">
-
-                            <h3>
-
-                                Regretfully Declines
-
-                            </h3>
-
-                            <p>
-
-                                I can't make it.
-
-                            </p>
-
-                        </label>
-
-                    </div>
-
-                </div>
-
-                <div class="step-buttons">
-
-                    <button
-                        type="button"
-                        class="prev-step">
-
-                        Previous
-
-                    </button>
-
-                    <button
-                        type="button"
-                        class="next-step">
-
-                        Next
-
-                    </button>
-
-                </div>
+                </label>
 
             </div>
-
-            <!-- STEP 3 -->
-
-            <div class="rsvp-step">
-
-                <h3 class="step-title">
-
-                    Number of Guests
-
-                </h3>
-
-                <p class="step-description">
-
-                    Let us prepare your seat.
-
-                </p>
-
-                <div class="form-group">
-
-                    <input
-                        type="number"
-                        name="guests"
-                        min="1"
-                        max="10"
-                        value="1"
-                        required>
-
-                </div>
-
-                <div class="step-buttons">
-
-                    <button
-                        type="button"
-                        class="prev-step">
-
-                        Previous
-
-                    </button>
-
-                    <button
-                        type="button"
-                        class="next-step">
-
-                        Next
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <!-- STEP 4 -->
-
-            <div class="rsvp-step">
-
-                <h3 class="step-title">
-
-                    Leave a Message
-
-                </h3>
-
-                <p class="step-description">
-
-                    We'd love to hear from you.
-
-                </p>
-
-                <div class="form-group">
-
-                    <textarea
-                        name="message"
-                        rows="5"
-                        placeholder="Write your message here..."></textarea>
-
-                </div>
-
-                <div class="step-buttons">
-
-                    <button
-                        type="button"
-                        class="prev-step">
-
-                        Previous
-
-                    </button>
-
-                    <button
-                        type="submit"
-                        class="btn">
-
-                        Confirm RSVP
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </form>
-
-        <!-- Success Screen -->
-
-        <div class="success-screen">
-
-            <i class="fa-solid fa-circle-check"></i>
-
-            <h2>
-
-                Thank You!
-
-            </h2>
-
-            <p>
-
-                Your RSVP has been received successfully.
-                We can't wait to celebrate our special day with you!
-
-            </p>
-
-            <a href="#"
-                class="btn messenger-btn">
-
-                Open Messenger
-
-            </a>
 
         </div>
 
     </div>
 
-</section>
+    <!-- Only show when YES -->
 
+    <div
+        class="form-group"
+        id="guestTypeGroup"
+        style="display:none;">
+
+        <label>Who will be attending?</label>
+
+        <div class="attendance-options">
+
+            <div class="attendance-card">
+
+                <input
+                    type="radio"
+                    id="me"
+                    name="data[Guest Type]"
+                    value="Only Me">
+
+                <label for="me">
+
+                    <h3>🙋 Only Me</h3>
+
+                </label>
+
+            </div>
+
+            <div class="attendance-card">
+
+                <input
+                    type="radio"
+                    id="family"
+                    name="data[Guest Type]"
+                    value="Me & My Invited Family">
+
+                <label for="family">
+
+                    <h3>👨‍👩‍👧 Me & Family</h3>
+
+                    <p>Please list the family members.</p>
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Only show when FAMILY -->
+
+    <div
+        class="form-group"
+        id="familyMembersGroup"
+        style="display:none;">
+
+        <label>Family Members</label>
+
+        <div id="familyMembers">
+
+            <input
+                class="form-control family-member"
+                type="text"
+                placeholder="Family Member Name">
+
+        </div>
+
+        <button
+            type="button"
+            class="btn-outline"
+            id="addMember">
+
+            + Add Family Member
+
+        </button>
+
+        <!-- Hidden field for SheetDB -->
+
+        <input
+            type="hidden"
+            name="data[Family Members]"
+            id="familyMembersHidden">
+
+    </div>
+
+    <!-- Message -->
+
+    <div class="form-group">
+
+        <label>Message (Optional)</label>
+
+        <textarea
+            name="data[Message]"
+            rows="4"
+            placeholder="Leave us a message..."></textarea>
+
+    </div>
+
+    <button
+        type="submit"
+        class="btn">
+
+        Confirm RSVP
+
+    </button>
+
+</form>
 <!-- ==========================
      FAQ
      (Part 5 Next)
