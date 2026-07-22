@@ -2748,7 +2748,7 @@ DESKTOP
 }
 /* =========================================================
    RSVP
-   PART 1 - Section, Card & Form
+   PART 1 - Section, Layout & Form
 ========================================================= */
 
 #rsvp{
@@ -2785,6 +2785,8 @@ DESKTOP
 
     right:-120px;
 
+    pointer-events:none;
+
 }
 
 #rsvp::after{
@@ -2805,6 +2807,8 @@ DESKTOP
 
     left:-120px;
 
+    pointer-events:none;
+
 }
 
 #rsvp .container{
@@ -2815,13 +2819,47 @@ DESKTOP
 
 }
 
+/* ==========================================
+   Section Header
+========================================== */
+
+#rsvp .section-header{
+
+    max-width:650px;
+
+    margin:0 auto;
+
+    text-align:center;
+
+}
+
+#rsvp .section-header h2{
+
+    margin:12px 0;
+
+}
+
+#rsvp .section-header p{
+
+    margin-top:14px;
+
+    line-height:1.8;
+
+    color:var(--gray);
+
+}
+
+/* ==========================================
+   RSVP Card
+========================================== */
+
 #rsvpForm{
 
     max-width:720px;
 
     margin:50px auto 0;
 
-    padding:48px;
+    padding:50px;
 
     background:#fff;
 
@@ -2831,15 +2869,23 @@ DESKTOP
 
         0 20px 60px rgba(0,0,0,.08);
 
+    animation:rsvpFade .6s ease;
+
 }
 
 /* ==========================================
-   Form Group
+   Form Groups
 ========================================== */
 
 .form-group{
 
     margin-bottom:30px;
+
+}
+
+.form-group:last-child{
+
+    margin-bottom:0;
 
 }
 
@@ -2849,16 +2895,16 @@ DESKTOP
 
     margin-bottom:10px;
 
+    font-size:.95rem;
+
     font-weight:600;
 
     color:var(--primary);
 
-    font-size:.95rem;
-
 }
 
 /* ==========================================
-   Inputs
+   Inputs & Textarea
 ========================================== */
 
 .form-group input,
@@ -2875,11 +2921,19 @@ DESKTOP
 
     background:#fff;
 
+    color:#333;
+
     font-size:15px;
 
     font-family:'Montserrat',sans-serif;
 
-    transition:.3s;
+    transition:
+
+        border-color .3s ease,
+
+        box-shadow .3s ease,
+
+        transform .25s ease;
 
 }
 
@@ -2903,6 +2957,32 @@ DESKTOP
 
         0 0 0 4px rgba(212,175,55,.15);
 
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   Placeholder
+========================================== */
+
+input::placeholder,
+
+textarea::placeholder{
+
+    color:#999;
+
+}
+
+/* ==========================================
+   Autofill
+========================================== */
+
+input:-webkit-autofill{
+
+    -webkit-box-shadow:0 0 0 1000px #fff inset;
+
+    -webkit-text-fill-color:#333;
+
 }
 
 /* ==========================================
@@ -2911,17 +2991,65 @@ DESKTOP
 
 .hidden{
 
-    display:none !important;
+    display:none;
 
 }
 
 /* ==========================================
-   Family Inputs
+   Smooth Reveal
 ========================================== */
 
-.family-member{
+#guestTypeGroup,
 
-    margin-bottom:14px;
+#familyMembersGroup{
+
+    overflow:hidden;
+
+    transition:
+
+        opacity .35s ease,
+
+        transform .35s ease;
+
+}
+
+#guestTypeGroup:not(.hidden),
+
+#familyMembersGroup:not(.hidden){
+
+    animation:fadeUp .35s ease;
+
+}
+
+/* ==========================================
+   Family Members Container
+========================================== */
+
+#familyMembers{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    margin-bottom:18px;
+
+}
+
+.family-member-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.family-member-wrapper input{
+
+    flex:1;
 
 }
 
@@ -2939,22 +3067,32 @@ DESKTOP
 
     #rsvpForm{
 
-        padding:28px 22px;
+        margin-top:35px;
+
+        padding:30px 22px;
 
         border-radius:22px;
 
-        margin-top:35px;
+        box-shadow:
+
+            0 12px 35px rgba(0,0,0,.06);
+
+    }
+
+    .form-group{
+
+        margin-bottom:24px;
 
     }
 
 }
 /* =========================================================
    RSVP
-   PART 2 - Cards, Buttons & Success
+   PART 2 - Cards, Buttons, Success & Animations
 ========================================================= */
 
 /* ==========================================
-   Attendance Options
+   Attendance Cards
 ========================================== */
 
 .attendance-options{
@@ -2993,7 +3131,15 @@ DESKTOP
 
     background:#fff;
 
-    transition:all .3s ease;
+    transition:
+
+        border-color .3s ease,
+
+        background .3s ease,
+
+        box-shadow .3s ease,
+
+        transform .3s ease;
 
 }
 
@@ -3001,11 +3147,11 @@ DESKTOP
 
     border-color:var(--gold);
 
-    transform:translateY(-2px);
+    transform:translateY(-3px);
 
     box-shadow:
 
-        0 12px 30px rgba(0,0,0,.06);
+        0 12px 30px rgba(0,0,0,.08);
 
 }
 
@@ -3023,11 +3169,11 @@ DESKTOP
 
 .attendance-card h3{
 
-    color:var(--primary);
-
     margin-bottom:8px;
 
-    font-size:1.15rem;
+    color:var(--primary);
+
+    font-size:1.1rem;
 
 }
 
@@ -3037,12 +3183,12 @@ DESKTOP
 
     color:var(--gray);
 
-    line-height:1.6;
+    line-height:1.7;
 
 }
 
 /* ==========================================
-   Add Family Member
+   Add Family Button
 ========================================== */
 
 .btn-outline{
@@ -3053,17 +3199,19 @@ DESKTOP
 
     justify-content:center;
 
-    margin-top:15px;
+    gap:8px;
+
+    margin-top:10px;
 
     padding:14px 22px;
 
     border:2px dashed var(--primary);
 
-    background:none;
+    border-radius:50px;
+
+    background:#fff;
 
     color:var(--primary);
-
-    border-radius:50px;
 
     font-weight:600;
 
@@ -3079,6 +3227,44 @@ DESKTOP
 
     color:#fff;
 
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   Remove Family Button
+========================================== */
+
+.remove-member{
+
+    width:48px;
+
+    height:48px;
+
+    flex-shrink:0;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#f4f4f4;
+
+    color:#777;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.remove-member:hover{
+
+    background:#d9534f;
+
+    color:#fff;
+
+    transform:scale(1.05);
+
 }
 
 /* ==========================================
@@ -3089,13 +3275,13 @@ DESKTOP
 
     width:100%;
 
-    margin-top:10px;
+    margin-top:15px;
+
+    padding:18px;
 
     border:none;
 
     border-radius:50px;
-
-    padding:18px;
 
     background:linear-gradient(
 
@@ -3140,26 +3326,34 @@ DESKTOP
 }
 
 /* ==========================================
-   Loading Text
+   Loading State
 ========================================== */
+
+.btn-text{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
 
 .btn-loader{
 
     display:none;
 
-}
+    align-items:center;
 
-.btn-loader i{
+    justify-content:center;
 
-    margin-right:8px;
+    gap:8px;
 
 }
 
 .btn-loader:not(.hidden){
 
     display:inline-flex;
-
-    align-items:center;
 
 }
 
@@ -3205,9 +3399,13 @@ DESKTOP
 
     margin-bottom:25px;
 
+    animation:pop .5s ease;
+
 }
 
 .success-screen h2{
+
+    margin-bottom:15px;
 
     font-family:'Cormorant Garamond',serif;
 
@@ -3215,22 +3413,46 @@ DESKTOP
 
     color:var(--primary);
 
-    margin-bottom:15px;
-
 }
 
 .success-screen p{
+
+    margin-bottom:35px;
 
     color:var(--gray);
 
     line-height:1.9;
 
-    margin-bottom:35px;
+}
+
+/* ==========================================
+   Button Animation
+========================================== */
+
+.btn,
+
+.btn-outline{
+
+    transition:
+
+        transform .25s ease,
+
+        box-shadow .25s ease,
+
+        background .25s ease;
+
+}
+
+.btn:active,
+
+.btn-outline:active{
+
+    transform:scale(.98);
 
 }
 
 /* ==========================================
-   Animation
+   Animations
 ========================================== */
 
 @keyframes fadeUp{
@@ -3253,187 +3475,13 @@ DESKTOP
 
 }
 
-/* ==========================================
-   Mobile
-========================================== */
-
-@media(max-width:768px){
-
-    .attendance-card label{
-
-        padding:20px;
-
-    }
-
-    .attendance-card h3{
-
-        font-size:1rem;
-
-    }
-
-    .success-screen{
-
-        padding:40px 25px;
-
-        border-radius:22px;
-
-    }
-
-    .success-screen h2{
-
-        font-size:2.2rem;
-
-    }
-/* =========================================================
-   RSVP
-   PART 3 - Premium Polish
-========================================================= */
-
-/* ==========================================
-   Smooth Reveal
-========================================== */
-
-#guestTypeGroup,
-#familyMembersGroup{
-
-    overflow:hidden;
-
-    transition:
-
-        opacity .35s ease,
-
-        transform .35s ease,
-
-        max-height .35s ease;
-
-}
-
-#guestTypeGroup.hidden,
-#familyMembersGroup.hidden{
-
-    opacity:0;
-
-    transform:translateY(-12px);
-
-    max-height:0;
-
-    margin-bottom:0;
-
-    pointer-events:none;
-
-}
-
-#guestTypeGroup:not(.hidden),
-#familyMembersGroup:not(.hidden){
-
-    opacity:1;
-
-    transform:translateY(0);
-
-    max-height:800px;
-
-}
-
-/* ==========================================
-   Dynamic Family Inputs
-========================================== */
-
-#familyMembers{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:14px;
-
-    margin-bottom:18px;
-
-}
-
-#familyMembers input{
-
-    margin:0;
-
-}
-
-/* ==========================================
-   Placeholder
-========================================== */
-
-input::placeholder,
-textarea::placeholder{
-
-    color:#999;
-
-}
-
-/* ==========================================
-   Autofill Fix
-========================================== */
-
-input:-webkit-autofill{
-
-    -webkit-box-shadow:0 0 0 1000px #fff inset;
-
-    -webkit-text-fill-color:#333;
-
-}
-
-/* ==========================================
-   Button Animation
-========================================== */
-
-.btn,
-.btn-outline{
-
-    transition:
-
-        transform .25s ease,
-
-        box-shadow .25s ease,
-
-        background .25s ease;
-
-}
-
-.btn:active,
-.btn-outline:active{
-
-    transform:scale(.98);
-
-}
-
-/* ==========================================
-   Disabled Submit
-========================================== */
-
-#submitBtn:disabled{
-
-    opacity:.75;
-
-    cursor:not-allowed;
-
-    transform:none;
-
-}
-
-/* ==========================================
-   Success Icon Animation
-========================================== */
-
-.success-screen i{
-
-    animation:pop .5s ease;
-
-}
-
 @keyframes pop{
 
     0%{
 
-        transform:scale(.4);
-
         opacity:0;
+
+        transform:scale(.4);
 
     }
 
@@ -3445,21 +3493,11 @@ input:-webkit-autofill{
 
     100%{
 
-        transform:scale(1);
-
         opacity:1;
 
+        transform:scale(1);
+
     }
-
-}
-
-/* ==========================================
-   Card Animation
-========================================== */
-
-#rsvpForm{
-
-    animation:rsvpFade .6s ease;
 
 }
 
@@ -3484,55 +3522,26 @@ input:-webkit-autofill{
 }
 
 /* ==========================================
-   Focus Animation
-========================================== */
-
-.form-group input:focus,
-.form-group textarea:focus{
-
-    transform:translateY(-2px);
-
-}
-
-/* ==========================================
-   Better Section Header
-========================================== */
-
-#rsvp .section-header{
-
-    max-width:650px;
-
-    margin:auto;
-
-    text-align:center;
-
-}
-
-#rsvp .section-header p{
-
-    margin-top:14px;
-
-    line-height:1.8;
-
-}
-
-/* ==========================================
-   Small Mobile Improvements
+   Responsive
 ========================================== */
 
 @media(max-width:768px){
 
-    #rsvpForm{
-
-        box-shadow:
-
-            0 12px 35px rgba(0,0,0,.06);
-
-    }
-
     .attendance-options{
 
         gap:14px;
+
+    }
+
+    .attendance-card label{
+
+        padding:20px;
+
+    }
+
+    .attendance-card h3{
+
+        font-size:1rem;
 
     }
 
@@ -3542,21 +3551,20 @@ input:-webkit-autofill{
 
     }
 
-}
+    .success-screen{
 
-/* ==========================================
-   Desktop
-========================================== */
+        padding:40px 25px;
 
-@media(min-width:992px){
-
-    #rsvpForm{
-
-        padding:55px;
+        border-radius:22px;
 
     }
 
-}
+    .success-screen h2{
+
+        font-size:2.2rem;
+
+    }
+
 }
 /* =========================================================
    PART 5A
