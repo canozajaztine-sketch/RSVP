@@ -7,6 +7,10 @@
 
     "use strict";
 
+    // ======================================================
+    // Elements
+    // ======================================================
+
     const form = document.getElementById("rsvpForm");
 
     if (!form) return;
@@ -35,58 +39,74 @@
     const successScreen =
         document.querySelector(".success-screen");
 
-    /* ==========================================
-       Initial State
-    ========================================== */
+    const submitButton =
+        document.getElementById("submitBtn");
 
-    guestTypeGroup.classList.add("hidden");
-    familyMembersGroup.classList.add("hidden");
+    const btnText =
+        submitButton.querySelector(".btn-text");
 
-    /* ==========================================
-       Attendance
-    ========================================== */
+    const btnLoader =
+        submitButton.querySelector(".btn-loader");
 
-    accept.addEventListener("change", () => {
+    // ======================================================
+    // Update Form
+    // ======================================================
 
-        guestTypeGroup.classList.remove("hidden");
+    function updateForm() {
 
-    });
-
-    decline.addEventListener("change", () => {
-
+        // Hide everything by default
         guestTypeGroup.classList.add("hidden");
-
         familyMembersGroup.classList.add("hidden");
 
-        onlyMe.checked = false;
-        family.checked = false;
+        onlyMe.required = false;
+        family.required = false;
 
-    });
+        // Declined
+        if (decline.checked) {
 
-    /* ==========================================
-       Guest Type
-    ========================================== */
+            onlyMe.checked = false;
+            family.checked = false;
 
-    onlyMe.addEventListener("change", () => {
+            return;
 
-        familyMembersGroup.classList.add("hidden");
+        }
 
-    });
+        // Accepted
+        if (accept.checked) {
 
-    family.addEventListener("change", () => {
+            guestTypeGroup.classList.remove("hidden");
 
-        familyMembersGroup.classList.remove("hidden");
+            onlyMe.required = true;
+            family.required = true;
 
-    });
+        }
 
-    /* ==========================================
-       Add Family Member
-    ========================================== */
+        // Family selected
+        if (family.checked) {
+
+            familyMembersGroup.classList.remove("hidden");
+
+        }
+
+    }
+
+    // ======================================================
+    // Events
+    // ======================================================
+
+    accept.addEventListener("change", updateForm);
+    decline.addEventListener("change", updateForm);
+
+    onlyMe.addEventListener("change", updateForm);
+    family.addEventListener("change", updateForm);
+
+    // ======================================================
+    // Add Family Member
+    // ======================================================
 
     addMemberBtn.addEventListener("click", () => {
 
-        const input =
-            document.createElement("input");
+        const input = document.createElement("input");
 
         input.type = "text";
 
@@ -99,13 +119,15 @@
 
     });
 
-    /* ==========================================
-       Submit
-    ========================================== */
+    // ======================================================
+    // Submit
+    // ======================================================
 
     form.addEventListener("submit", async (e) => {
 
         e.preventDefault();
+
+        // Combine family members
 
         const members =
             [...document.querySelectorAll(".family-member")];
@@ -116,16 +138,12 @@
             .filter(Boolean)
             .join(", ");
 
-        const submitButton =
-            form.querySelector('button[type="submit"]');
-
-        const originalText =
-            submitButton.innerHTML;
+        // Loading
 
         submitButton.disabled = true;
 
-        submitButton.innerHTML =
-            "Submitting...";
+        btnText.classList.add("hidden");
+        btnLoader.classList.remove("hidden");
 
         try {
 
@@ -144,13 +162,23 @@
 
             }
 
+            form.reset();
+
+            updateForm();
+
             form.style.display = "none";
 
             successScreen.classList.add("show");
 
             if (typeof confetti === "function") {
 
-                confetti();
+                confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: {
+                        y: 0.6
+                    }
+                });
 
             }
 
@@ -164,11 +192,17 @@
 
             submitButton.disabled = false;
 
-            submitButton.innerHTML =
-                originalText;
+            btnText.classList.remove("hidden");
+            btnLoader.classList.add("hidden");
 
         }
 
     });
+
+    // ======================================================
+    // Initialize
+    // ======================================================
+
+    updateForm();
 
 })();
