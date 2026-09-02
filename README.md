@@ -16,7 +16,7 @@ This ZIP is a clean, GitHub Pages-ready recreation of the wedding RSVP page.
 Put your images inside the `images` folder using these exact names:
 
 - `hero.png` — main full-screen cover photo
-- `story.jpg` — couple/story photo
+- `story.jpg` — couple/story photo (already included in this package)
 - `nlc-log.png` — New Light City Church logo shown beside the venue details
 - `footer.jpg` — footer background photo
 
@@ -25,7 +25,7 @@ Recommended:
 - Story: portrait or vertical-friendly photo
 - JPG or WebP is best for smaller file size
 
-The venue area uses an embedded Google Map instead of a venue image. If `nlc-log.png` is missing, the site falls back to a small decorative symbol.
+The venue area uses an embedded Google Map instead of a venue image. The church logo is displayed inside a circular frame. If `nlc-log.png` is missing, the site falls back to the initials `NLC` so no broken-image icon appears.
 
 ## 2. Connect RSVP responses
 

@@ -112,12 +112,7 @@
         </header>
 
         <div class="story-layout">
-          <div class="photo-panel story-photo reveal" role="img" aria-label="Add your couple photo as images/story.jpg">
-            <div class="photo-label">
-              <span>YOUR PHOTO</span>
-              <small>images/story.jpg</small>
-            </div>
-          </div>
+          <div class="photo-panel story-photo reveal" role="img" aria-label="Jaztine and Mary Ven by the sea"></div>
 
           <div class="story-list">
             <article class="story-card reveal">
@@ -248,8 +243,10 @@
 
           <article class="location-card reveal">
             <div class="location-logo-wrap" aria-label="New Light City Church">
-              <img class="location-logo" src="images/nlc-log.png" alt="New Light City Church logo" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
-              <span class="location-mark location-mark-fallback" hidden>✦</span>
+              <div class="location-logo-circle">
+                <img class="location-logo" src="images/nlc-log.png" alt="New Light City Church logo" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+                <span class="location-logo-fallback" hidden>NLC</span>
+              </div>
             </div>
             <h3>New Light City Church</h3>
             <p>Tanawan, Bustos, Bulacan</p>
@@ -331,7 +328,6 @@
                 <div class="form-group">
                   <label for="fullName">Full Name *</label>
                   <div class="input-shell">
-                    <span class="input-icon">☺</span>
                     <input id="fullName" name="data[Name]" type="text" placeholder="e.g. Juan Dela Cruz" required>
                   </div>
                 </div>
@@ -356,7 +352,6 @@
                     <label class="choice-card big-choice">
                       <input type="radio" name="data[Attendance]" value="Going" required>
                       <span class="choice-content">
-                        <span class="choice-emoji">🥂</span>
                         <strong>Going</strong>
                         <small>Yes, I’ll be there.</small>
                         <span class="choice-check">✓</span>
@@ -365,7 +360,6 @@
                     <label class="choice-card big-choice">
                       <input type="radio" name="data[Attendance]" value="Not Going">
                       <span class="choice-content">
-                        <span class="choice-emoji">💌</span>
                         <strong>Not Going</strong>
                         <small>Sorry, I won’t be able to attend.</small>
                         <span class="choice-check">✓</span>
