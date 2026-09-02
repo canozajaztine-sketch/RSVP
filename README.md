@@ -15,7 +15,7 @@ This ZIP is a clean, GitHub Pages-ready recreation of the wedding RSVP page.
 
 Put your images inside the `images` folder using these exact names:
 
-- `hero.jpg` — main full-screen cover photo
+- `hero.png` — main full-screen cover photo
 - `story.jpg` — couple/story photo
 - `venue.jpg` — church/venue photo
 - `footer.jpg` — footer background photo

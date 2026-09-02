@@ -81,7 +81,8 @@ img{max-width:100%;display:block}
 .nav-rsvp:hover{color:var(--gold)}
 
 .hero{
-  --hero-image:url("images/hero.jpg");
+  --hero-image:url("images/hero.png");
+  --hero-position:center center;
   position:relative;
   min-height:100svh;
   display:grid;
@@ -94,7 +95,7 @@ img{max-width:100%;display:block}
     linear-gradient(rgba(16,32,25,.28),rgba(10,24,18,.62)),
     var(--hero-image),
     linear-gradient(135deg,#355e4d,#172f25);
-  background-position:center;
+  background-position:var(--hero-position);
   background-size:cover;
 }
 .hero::before{
@@ -102,7 +103,7 @@ img{max-width:100%;display:block}
   position:absolute;
   inset:-4%;
   background:inherit;
-  background-position:center;
+  background-position:var(--hero-position);
   background-size:cover;
   animation:heroZoom 18s ease-in-out infinite alternate;
 }
@@ -673,7 +674,6 @@ img{max-width:100%;display:block}
   pointer-events:none;
 }
 .input-shell input{padding-left:43px}
-.input-shell.no-icon input{padding-left:16px}
 #rsvpForm input[type="text"],#rsvpForm textarea{
   width:100%;
   min-height:50px;
@@ -1049,6 +1049,12 @@ img{max-width:100%;display:block}
   transition:opacity .75s var(--ease),transform .75s var(--ease);
 }
 .reveal.visible{opacity:1;transform:none}
+
+/* The selected hero photo is portrait. On wider screens, shift the crop upward
+   so the couple stays visible while preserving some sky behind the heading. */
+@media (min-width:900px){
+  .hero{--hero-position:center 38%;}
+}
 
 /* Tablet enhancements */
 @media (min-width:640px){

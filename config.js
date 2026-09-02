@@ -2,7 +2,7 @@
   RSVP CONFIGURATION
   ------------------
   1) Put your photos in the /images folder:
-       images/hero.jpg
+       images/hero.png
        images/story.jpg
        images/venue.jpg
        images/footer.jpg
