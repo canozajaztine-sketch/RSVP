@@ -4,8 +4,8 @@
   1) Put your photos in the /images folder:
        images/hero.png
        images/story.jpg
-       images/venue.jpg
        images/footer.jpg
+       images/nlc-log.png   (New Light City Church logo)
 
   2) To save RSVP responses, create a SheetDB API and paste its endpoint below.
      Example:

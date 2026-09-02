@@ -331,13 +331,37 @@ img{max-width:100%;display:block}
     url("images/story.jpg"),
     linear-gradient(135deg,#9baf9f,#355e4d);
 }
-.venue-photo{
+
+.venue-map{
   min-height:380px;
-  background-image:
-    linear-gradient(180deg,rgba(33,66,51,.06),rgba(33,66,51,.28)),
-    url("images/venue.jpg"),
-    linear-gradient(135deg,#d7c8aa,#557460);
+  overflow:hidden;
+  position:relative;
+  border-radius:28px;
+  background:#e9e4da;
+  box-shadow:var(--shadow);
 }
+.venue-map iframe{
+  display:block;
+  width:100%;
+  min-height:380px;
+  height:100%;
+  border:0;
+}
+.location-logo-wrap{
+  min-height:78px;
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.location-logo{
+  display:block;
+  width:auto;
+  max-width:150px;
+  max-height:78px;
+  object-fit:contain;
+}
+.location-mark-fallback{margin-bottom:0}
 .photo-label{
   position:absolute;
   left:16px;right:16px;bottom:16px;
@@ -1135,7 +1159,7 @@ img{max-width:100%;display:block}
     grid-template-columns:1.1fr .9fr;
     gap:22px;
   }
-  .venue-photo{min-height:440px}
+  .venue-map,.venue-map iframe{min-height:440px}
 
   .rsvp-intro{
     display:flex;

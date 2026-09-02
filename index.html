@@ -236,15 +236,21 @@
         </header>
 
         <div class="location-grid">
-          <div class="photo-panel venue-photo reveal" role="img" aria-label="Add your venue photo as images/venue.jpg">
-            <div class="photo-label">
-              <span>VENUE PHOTO</span>
-              <small>images/venue.jpg</small>
-            </div>
+          <div class="venue-map reveal">
+            <iframe
+              title="Google Map showing New Light City Church in Tanawan, Bustos, Bulacan"
+              src="https://www.google.com/maps?q=New+Light+City+Church,+Tanawan,+Bustos,+Bulacan&amp;output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
           </div>
 
           <article class="location-card reveal">
-            <span class="location-mark">✦</span>
+            <div class="location-logo-wrap" aria-label="New Light City Church">
+              <img class="location-logo" src="images/nlc-log.png" alt="New Light City Church logo" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+              <span class="location-mark location-mark-fallback" hidden>✦</span>
+            </div>
             <h3>New Light City Church</h3>
             <p>Tanawan, Bustos, Bulacan</p>
             <small>Ceremony & Reception Venue</small>
@@ -290,11 +296,7 @@
                 </div>
                 <div class="mini-step">
                   <span>2</span>
-                  <div><strong>Choose your response</strong><small>Accept or decline in one tap.</small></div>
-                </div>
-                <div class="mini-step">
-                  <span>3</span>
-                  <div><strong>Add your family</strong><small>Only if they are included in your invitation.</small></div>
+                  <div><strong>Choose & send</strong><small>Select Going or Not Going, then submit.</small></div>
                 </div>
               </div>
 
@@ -308,8 +310,8 @@
           <div class="rsvp-main">
             <div class="form-progress-wrap" aria-label="RSVP form progress">
               <div class="form-progress-top">
-                <span id="formProgressText">Step 1 of 3</span>
-                <strong id="formProgressPercent">33%</strong>
+                <span id="formProgressText">Step 1 of 2</span>
+                <strong id="formProgressPercent">50%</strong>
               </div>
               <div class="form-progress-track">
                 <span id="formProgressBar"></span>
@@ -344,7 +346,7 @@
                   <span class="step-number">02</span>
                   <div>
                     <h3>Will you be celebrating with us?</h3>
-                    <p>Choose the response that best fits you.</p>
+                    <p>Please let us know if you’re going or not going.</p>
                   </div>
                 </div>
 
@@ -352,88 +354,25 @@
                   <legend>Attendance *</legend>
                   <div class="choice-grid attendance-choice-grid">
                     <label class="choice-card big-choice">
-                      <input type="radio" name="data[Attendance]" value="Happily Accepts" required>
+                      <input type="radio" name="data[Attendance]" value="Going" required>
                       <span class="choice-content">
                         <span class="choice-emoji">🥂</span>
-                        <strong>Happily Accepts</strong>
-                        <small>Yes! Save me a seat.</small>
+                        <strong>Going</strong>
+                        <small>Yes, I’ll be there.</small>
                         <span class="choice-check">✓</span>
                       </span>
                     </label>
                     <label class="choice-card big-choice">
-                      <input type="radio" name="data[Attendance]" value="Regretfully Declines">
+                      <input type="radio" name="data[Attendance]" value="Not Going">
                       <span class="choice-content">
                         <span class="choice-emoji">💌</span>
-                        <strong>Regretfully Declines</strong>
-                        <small>I’ll be celebrating from afar.</small>
+                        <strong>Not Going</strong>
+                        <small>Sorry, I won’t be able to attend.</small>
                         <span class="choice-check">✓</span>
                       </span>
                     </label>
                   </div>
                 </fieldset>
-
-                <div class="step-actions">
-                  <button class="button button-ghost prev-step" type="button" data-prev="1">Back</button>
-                  <button class="button button-green next-step" type="button" data-next="3">Continue</button>
-                </div>
-              </section>
-
-              <section class="form-step" data-step="3">
-                <div class="step-heading">
-                  <span class="step-number">03</span>
-                  <div>
-                    <h3>Almost done</h3>
-                    <p>Add family members included in your invitation, then leave a note if you’d like.</p>
-                  </div>
-                </div>
-
-                <fieldset class="form-group hidden" id="guestTypeGroup">
-                  <legend>Who’s coming with you?</legend>
-                  <div class="choice-grid">
-                    <label class="choice-card compact-choice">
-                      <input type="radio" name="data[Guest Type]" value="Only Me">
-                      <span class="choice-content">
-                        <span class="choice-emoji">🙋</span>
-                        <strong>Only Me</strong>
-                        <small>I’ll attend by myself.</small>
-                        <span class="choice-check">✓</span>
-                      </span>
-                    </label>
-                    <label class="choice-card compact-choice">
-                      <input type="radio" name="data[Guest Type]" value="Me & My Family">
-                      <span class="choice-content">
-                        <span class="choice-emoji">👨‍👩‍👧</span>
-                        <strong>Me & My Family</strong>
-                        <small>I’ll add their names below.</small>
-                        <span class="choice-check">✓</span>
-                      </span>
-                    </label>
-                  </div>
-                </fieldset>
-
-                <div class="form-group hidden" id="familyMembersGroup">
-                  <div class="family-label-row">
-                    <label>Family Members</label>
-                    <span id="familyCount">1 of 2</span>
-                  </div>
-
-                  <div id="familyMembers">
-                    <div class="family-row">
-                      <div class="input-shell family-input-shell">
-                        <span class="input-icon">♡</span>
-                        <input class="family-member" type="text" placeholder="Family member name">
-                        <button class="remove-member" type="button" aria-label="Remove family member">×</button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="family-actions">
-                    <button class="button-outline" id="addMember" type="button">+ Add another person</button>
-                    <small id="familyLimitNote">Maximum of 2 family members.</small>
-                  </div>
-
-                  <input id="familyMembersHidden" name="data[Family Members]" type="hidden">
-                </div>
 
                 <div class="form-group">
                   <label for="message">Message <span class="optional">Optional</span></label>
@@ -450,7 +389,7 @@
                 </div>
 
                 <div class="step-actions">
-                  <button class="button button-ghost prev-step" type="button" data-prev="2">Back</button>
+                  <button class="button button-ghost prev-step" type="button" data-prev="1">Back</button>
                   <button class="button button-green submit-button" id="submitBtn" type="submit">
                     <span class="submit-text">Send My RSVP</span>
                     <span class="submit-loading hidden">Submitting...</span>
@@ -463,8 +402,8 @@
               <div class="success-icon">✓</div>
               <p class="eyebrow">RSVP Received</p>
               <h2>Thank You!</h2>
-              <p>We’re so excited to celebrate our special day with you.</p>
-              <p>See you on <strong>December 5, 2026.</strong></p>
+              <p id="successMessage">Thank you for letting us know.</p>
+              <p id="successDate">See you on <strong>December 5, 2026.</strong></p>
               <a class="button button-green" href="#home">Back to Top</a>
             </div>
           </div>

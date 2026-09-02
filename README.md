@@ -17,15 +17,15 @@ Put your images inside the `images` folder using these exact names:
 
 - `hero.png` — main full-screen cover photo
 - `story.jpg` — couple/story photo
-- `venue.jpg` — church/venue photo
+- `nlc-log.png` — New Light City Church logo shown beside the venue details
 - `footer.jpg` — footer background photo
 
 Recommended:
 - Hero/footer: landscape, at least 1600px wide
-- Story/venue: portrait or vertical-friendly photos
+- Story: portrait or vertical-friendly photo
 - JPG or WebP is best for smaller file size
 
-If an image is missing, the site still shows a green/neutral fallback background.
+The venue area uses an embedded Google Map instead of a venue image. If `nlc-log.png` is missing, the site falls back to a small decorative symbol.
 
 ## 2. Connect RSVP responses
 
@@ -47,8 +47,6 @@ Your SheetDB/Google Sheet should have columns matching:
 
 - Name
 - Attendance
-- Guest Type
-- Family Members
 - Message
 
 ## 3. Upload to GitHub
@@ -101,7 +99,3 @@ This version is true mobile-first CSS:
 - Desktop enhancements start at `@media (min-width: 900px)`.
 - Wide desktop refinements start at `@media (min-width: 1180px)`.
 - Touch targets, RSVP cards, navigation, and sticky mobile form actions are optimized for phones first.
-
-## Family member limit
-
-The RSVP allows a maximum of 2 family members. Each added person can be removed with the × button.
