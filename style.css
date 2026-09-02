@@ -673,6 +673,7 @@ img{max-width:100%;display:block}
   pointer-events:none;
 }
 .input-shell input{padding-left:43px}
+.input-shell.no-icon input{padding-left:16px}
 #rsvpForm input[type="text"],#rsvpForm textarea{
   width:100%;
   min-height:50px;
