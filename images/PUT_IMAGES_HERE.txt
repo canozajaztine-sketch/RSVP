@@ -1,0 +1,10 @@
+PUT YOUR PHOTOS IN THIS FOLDER
+
+Use these exact filenames:
+
+hero.jpg
+story.jpg
+venue.jpg
+footer.jpg
+
+You can also change the filenames in style.css if you prefer.
