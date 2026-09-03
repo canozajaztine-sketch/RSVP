@@ -13,7 +13,7 @@
 
   Leave it blank while you are only previewing the site.
 */
-const RSVP_ENDPOINT = "";
+const RSVP_ENDPOINT = "https://sheetdb.io/api/v1/kq6hqyeecsko4";
 
 /*
   Wedding date used by the countdown.
