@@ -57,8 +57,8 @@
       intro:"To keep the wedding look intentional, white, ivory, and very light cream are reserved exclusively for the Bride & Groom.",
       colors:["white"],
       looks:[
-        {gender:"Bride",title:"Bridal White",kind:"dress",main:"#FFFFFF",accent:"#EAD9BD",text:"Wedding gown in bridal white with soft champagne details.",pieces:["White gown","Champagne accents","Elegant formal shoes"]},
-        {gender:"Groom",title:"Classic White & Formal",kind:"suit",main:"#FFFFFF",accent:"#214233",text:"Formal groom styling centered on white with refined wedding accents.",pieces:["White formal top","Tailored trousers","Formal shoes"]}
+        {gender:"Bride",title:"Bridal White",image:"images/attire-v4/bride-v4.jpg",text:"Wedding gown in bridal white with soft champagne details.",pieces:["White gown","Champagne accents","Elegant formal shoes"]},
+        {gender:"Groom",title:"Classic White & Formal",image:"images/attire-v4/groom-v4.jpg",text:"Formal groom styling centered on white with refined wedding accents.",pieces:["White formal suit","Tailored trousers","Formal shoes"]}
       ],
       tip:"Guests and entourage: please avoid white, ivory, and very light cream so the couple remains visually distinct."
     },
@@ -68,8 +68,8 @@
       intro:"Choose refined formal pieces in the wedding palette. Coordinated colors are encouraged, but exact matching is not required.",
       colors:["champagne","beige","brown","burgundy","emerald"],
       looks:[
-        {gender:"Men",title:"Champagne Formal",kind:"suit",main:"#EAD9BD",accent:"#7B1E31",text:"A champagne or beige suit / formal Barong-inspired look with a burgundy accent and brown dress shoes.",pieces:["Champagne / beige top","Matching trousers","Burgundy accent","Brown shoes"]},
-        {gender:"Women",title:"Emerald or Burgundy Formal",kind:"dress",main:"#1F6B4F",accent:"#EAD9BD",text:"An elegant midi or floor-length dress in emerald or burgundy, finished with champagne or beige accessories.",pieces:["Emerald / burgundy dress","Champagne accessories","Neutral heels"]}
+        {gender:"Men",title:"Champagne Formal",image:"images/attire-v4/parent-men-v4.jpg",text:"A champagne, beige, or soft-brown formal suit with a burgundy accent and brown or dark dress shoes.",pieces:["Champagne / beige suit","Matching trousers","Burgundy accent","Brown / dark shoes"]},
+        {gender:"Women",title:"Emerald or Burgundy Formal",image:"images/attire-v4/parent-women-v4.jpg",text:"An elegant midi or floor-length dress in emerald, burgundy, champagne, beige, or soft brown, finished with coordinated accessories.",pieces:["Formal palette dress","Champagne accessories","Neutral heels"]}
       ],
       tip:"Keep the overall look elegant and formal. You may use one main wedding color and one coordinating accent."
     },
@@ -79,8 +79,8 @@
       intro:"For a polished Ninong & Ninang look, use the designated combinations below. These are the preferred sample outfits for our Principal Sponsors.",
       colors:["champagne","beige","burgundy","emerald","brown"],
       looks:[
-        {gender:"Ninong / Men",title:"Champagne & Burgundy",kind:"barong",main:"#EAD9BD",accent:"#7B1E31",text:"Champagne or beige formal Barong / long-sleeve formal top, beige trousers, a subtle burgundy accent, and brown or dark dress shoes.",pieces:["Champagne #EAD9BD","Beige #CBB89B","Burgundy #7B1E31","Brown dress shoes"]},
-        {gender:"Ninang / Women",title:"Emerald with Champagne",kind:"dress",main:"#1F6B4F",accent:"#EAD9BD",text:"Elegant emerald green formal dress with champagne or beige accessories. Burgundy may be used as an alternate main dress color.",pieces:["Emerald #1F6B4F","Alt: Burgundy #7B1E31","Champagne #EAD9BD","Neutral heels"]}
+        {gender:"Ninong / Men",title:"Formal Suit & Burgundy Tie",image:"images/attire-v4/sponsors-ninong-v4.jpg",text:"A tailored taupe, champagne, beige, or soft-brown tuxedo/suit with matching trousers, white dress shirt, burgundy necktie, boutonnière, and brown or dark formal shoes.",pieces:["Taupe / Beige formal suit","White dress shirt","Burgundy #7B1E31 necktie","Brown / dark formal shoes"]},
+        {gender:"Ninang / Women",title:"Emerald with Champagne",image:"images/attire-v4/sponsors-ninang-v4.jpg",text:"Elegant emerald green formal dress with champagne or beige accessories. Burgundy may be used as an alternate main dress color.",pieces:["Emerald #1F6B4F","Alt: Burgundy #7B1E31","Champagne #EAD9BD","Neutral heels"]}
       ],
       tip:"Principal Sponsors do not need identical outfits. The goal is a coordinated formal look using these exact palette colors. Please avoid white, ivory, and very light cream."
     },
@@ -90,7 +90,7 @@
       intro:"The primary color is emerald green, styled in a more formal silhouette with soft wedding-palette accents.",
       colors:["emerald","champagne","beige","burgundy"],
       looks:[
-        {gender:"Women",title:"Emerald Dress",kind:"dress",main:"#1F6B4F",accent:"#EAD9BD",text:"Formal emerald green dress, preferably midi to floor length, with champagne, beige, or restrained burgundy details.",pieces:["Emerald #1F6B4F","Champagne accents","Beige heels","Minimal burgundy detail"]}
+        {gender:"Women",title:"Emerald Dress",image:"images/attire-v4/bridesmaids-v4.jpg",text:"Formal emerald green dress, preferably midi to floor length, with champagne, beige, or restrained burgundy details.",pieces:["Emerald #1F6B4F","Champagne accents","Beige heels","Minimal burgundy detail"]}
       ],
       tip:"Emerald green should remain the dominant color so the bridal party looks coordinated in photos."
     },
@@ -100,7 +100,7 @@
       intro:"A complete coordinated suit look with burgundy as the defining accent color.",
       colors:["champagne","beige","burgundy","brown"],
       looks:[
-        {gender:"Men",title:"Beige Suit & Burgundy Accent",kind:"suit",main:"#CBB89B",accent:"#7B1E31",text:"Full beige or champagne suit with matching trousers, burgundy tie or bow tie, boutonnière, and brown or dark dress shoes.",pieces:["Beige #CBB89B","Champagne #EAD9BD","Burgundy #7B1E31","Brown / dark shoes"]}
+        {gender:"Men",title:"Beige Suit & Burgundy Bow Tie",image:"images/attire-v4/bestman-v4.jpg",text:"Full beige or champagne suit with matching trousers, burgundy bow tie, boutonnière, and brown or dark dress shoes.",pieces:["Beige #CBB89B","Champagne #EAD9BD","Burgundy bow tie #7B1E31","Brown / dark shoes"]}
       ],
       tip:"Keep the jacket and trousers coordinated. Burgundy should appear in the tie or bow tie rather than as the main suit color."
     },
@@ -110,7 +110,7 @@
       intro:"A relaxed but coordinated formal look using a light neutral base and burgundy accessories.",
       colors:["champagne","beige","burgundy","brown"],
       looks:[
-        {gender:"Men",title:"Light Neutral with Burgundy",kind:"shirt",main:"#EAD9BD",accent:"#7B1E31",text:"Light champagne or beige long-sleeve shirt, beige trousers, burgundy suspenders and bow tie, with brown dress shoes.",pieces:["Champagne #EAD9BD","Beige #CBB89B","Burgundy #7B1E31","Brown shoes"]}
+        {gender:"Men",title:"Light Neutral with Burgundy",image:"images/attire-v4/groomsmen-v4.jpg",text:"Light champagne or beige long-sleeve shirt, beige trousers, burgundy suspenders and bow tie, with brown dress shoes.",pieces:["Champagne #EAD9BD","Beige #CBB89B","Burgundy #7B1E31","Brown shoes"]}
       ],
       tip:"Please keep the shirt and trousers in the light champagne/beige family so the burgundy accessories remain the visual accent."
     },
@@ -120,8 +120,8 @@
       intro:"Dress polished but comfortable. You may choose any of the wedding colors below, with white, ivory, and very light cream reserved for the couple.",
       colors:["burgundy","champagne","beige","brown","emerald"],
       looks:[
-        {gender:"Men",title:"Smart Casual Neutral",kind:"shirt",main:"#CBB89B",accent:"#7B1E31",text:"Polo or button-down in beige/champagne, paired with chinos or slacks in soft brown or a coordinating neutral.",pieces:["Polo / button-down","Chinos / slacks","Brown shoes","Optional burgundy accent"]},
-        {gender:"Women",title:"Wedding-Palette Midi",kind:"dress",main:"#7B1E31",accent:"#EAD9BD",text:"Midi dress, skirt-and-blouse set, or polished jumpsuit in burgundy, emerald, champagne, beige, or soft brown.",pieces:["Midi dress / jumpsuit","Palette color","Polished flats / heels","Simple accessories"]}
+        {gender:"Men",title:"Smart Casual Neutral",image:"images/attire-v4/guest-men-v4.jpg",text:"Polo or button-down in beige, champagne, emerald, burgundy, or a coordinated wedding-palette tone, paired with chinos or slacks.",pieces:["Polo / button-down","Chinos / slacks","Brown shoes","Wedding-palette color"]},
+        {gender:"Women",title:"Wedding-Palette Midi",image:"images/attire-v4/guest-women-v4.jpg",text:"Midi dress, skirt-and-blouse set, or polished jumpsuit in burgundy, emerald, champagne, beige, or soft brown.",pieces:["Midi dress / jumpsuit","Palette color","Polished flats / heels","Simple accessories"]}
       ],
       tip:"Please avoid shorts, slippers, tank tops, ripped jeans, jerseys, oversized streetwear, and overly casual outfits."
     }
@@ -141,7 +141,7 @@
     attireTitle.textContent=data.title;
     attireIntro.textContent=data.intro;
     attirePalette.innerHTML=data.colors.map(c=>{const x=attireColors[c];return `<span class="attire-color-chip"><i class="attire-color-dot" style="background:${x.hex}"></i>${x.name} <code>${x.hex}</code></span>`}).join("");
-    attireLooks.innerHTML=data.looks.map(look=>`<article class="attire-look-card"><div class="attire-look-visual">${attireSvg(look.kind,look.main,look.accent)}</div><div class="attire-look-copy"><span class="attire-look-label">${look.gender}</span><h4>${look.title}</h4><p>${look.text}</p><div class="attire-piece-list">${look.pieces.map(piece=>`<span>${piece}</span>`).join("")}</div></div></article>`).join("");
+    attireLooks.innerHTML=data.looks.map(look=>`<article class="attire-look-card"><div class="attire-look-visual">${look.image ? `<img src="${look.image}" alt="${look.gender} sample wedding outfit" loading="lazy">` : attireSvg(look.kind,look.main,look.accent)}</div><div class="attire-look-copy"><span class="attire-look-label">${look.gender}</span><h4>${look.title}</h4><p>${look.text}</p><div class="attire-piece-list">${look.pieces.map(piece=>`<span>${piece}</span>`).join("")}</div></div></article>`).join("");
     attireTip.innerHTML=`<strong>Style note:</strong> ${data.tip}`;
     attireModal.classList.add("open");
     attireModal.setAttribute("aria-hidden","false");
