@@ -1,0 +1,19 @@
+UPLOAD THESE UPDATED ITEMS TO THE ROOT OF YOUR GITHUB REPOSITORY:
+- index.html
+- script.js
+- style.css
+- the entire images folder
+
+V5 IMPORTANT IMAGE FILES (all directly inside /images, no nested attire folder required):
+- attire-bride-v5.jpg
+- attire-groom-v5.jpg
+- attire-parent-men-v5.jpg
+- attire-parent-women-v5.jpg
+- attire-ninong-v5.jpg
+- attire-ninang-v5.jpg
+- attire-bridesmaids-v5.jpg
+- attire-bestman-v5.jpg
+- attire-groomsmen-v5.jpg
+- attire-guest-men-v5.jpg
+- attire-guest-women-v5.jpg
+- wedding-attire-guide-v5.png
