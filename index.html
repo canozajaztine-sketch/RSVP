@@ -235,35 +235,72 @@
           <figcaption>Attire inspiration only — choose a look that fits your comfort, budget, and our wedding palette.</figcaption>
         </figure>
 
+        <div class="attire-click-note reveal" role="note">
+          <span class="attire-click-icon" aria-hidden="true">✦</span>
+          <div>
+            <strong>Tap or click your role to view what you can wear.</strong>
+            <p>Each guide includes sample outfits for men and women where applicable, plus the exact wedding colors to help you match the palette.</p>
+          </div>
+        </div>
+
         <div class="attire-group-grid reveal" aria-label="Wedding attire inspiration by group">
-          <article class="attire-group-card">
+          <button class="attire-group-card attire-role-card" type="button" data-attire-group="couple" aria-haspopup="dialog">
+            <span class="attire-card-kicker">Reserved palette</span>
             <h3>Bride &amp; Groom</h3>
             <p><strong>White is reserved exclusively for us.</strong></p>
-          </article>
-          <article class="attire-group-card">
+            <span class="attire-card-action">View attire note <b>→</b></span>
+          </button>
+          <button class="attire-group-card attire-role-card" type="button" data-attire-group="parents" aria-haspopup="dialog">
+            <span class="attire-card-kicker">Formal</span>
             <h3>Parents</h3>
             <p>Elegant formal attire in champagne, beige, soft brown, burgundy, or emerald tones.</p>
-          </article>
-          <article class="attire-group-card">
-            <h3>Principal Sponsors</h3>
-            <p>Classic coordinated formal looks within the wedding palette.</p>
-          </article>
-          <article class="attire-group-card">
+            <span class="attire-card-action">View outfit guide <b>→</b></span>
+          </button>
+          <button class="attire-group-card attire-role-card attire-featured-role" type="button" data-attire-group="sponsors" aria-haspopup="dialog">
+            <span class="attire-card-kicker">Principal Sponsors</span>
+            <h3>Coordinated Formal Looks</h3>
+            <p>Classic, elegant outfits using the designated wedding colors for Ninong and Ninang.</p>
+            <span class="attire-card-action">View sample outfits <b>→</b></span>
+          </button>
+          <button class="attire-group-card attire-role-card" type="button" data-attire-group="bridesmaids" aria-haspopup="dialog">
+            <span class="attire-card-kicker">Wedding party</span>
             <h3>Bridesmaids / Maid &amp; Matron of Honor</h3>
             <p>More formal dresses, primarily in emerald green with coordinated wedding accents.</p>
-          </article>
-          <article class="attire-group-card">
+            <span class="attire-card-action">View outfit guide <b>→</b></span>
+          </button>
+          <button class="attire-group-card attire-role-card" type="button" data-attire-group="bestman" aria-haspopup="dialog">
+            <span class="attire-card-kicker">Wedding party</span>
             <h3>Best Man</h3>
-            <p>Full beige or champagne suit with matching trousers, burgundy tie or bow tie, boutonnière, and brown or dark dress shoes.</p>
-          </article>
-          <article class="attire-group-card">
+            <p>Full beige or champagne suit with matching trousers and burgundy accents.</p>
+            <span class="attire-card-action">View outfit guide <b>→</b></span>
+          </button>
+          <button class="attire-group-card attire-role-card" type="button" data-attire-group="groomsmen" aria-haspopup="dialog">
+            <span class="attire-card-kicker">Wedding party</span>
             <h3>Groomsmen</h3>
-            <p>Light champagne or beige long-sleeve shirt, beige trousers, burgundy suspenders and bow tie, plus brown dress shoes.</p>
-          </article>
-          <article class="attire-group-card attire-group-guests">
+            <p>Light champagne or beige shirt and trousers with burgundy suspenders and bow tie.</p>
+            <span class="attire-card-action">View outfit guide <b>→</b></span>
+          </button>
+          <button class="attire-group-card attire-group-guests attire-role-card" type="button" data-attire-group="guests" aria-haspopup="dialog">
+            <span class="attire-card-kicker">Semi-formal / smart casual</span>
             <h3>Wedding Guests</h3>
-            <p>Relaxed semi-formal or smart casual. Polos, button-downs, chinos, slacks, midi dresses, skirts, jumpsuits, and polished smart-casual outfits are welcome.</p>
-          </article>
+            <p>Polished, comfortable outfits within the wedding palette. White, ivory, and very light cream are reserved.</p>
+            <span class="attire-card-action">View outfit guide <b>→</b></span>
+          </button>
+        </div>
+
+        <div class="attire-modal" id="attireModal" aria-hidden="true">
+          <div class="attire-modal-backdrop" data-attire-close></div>
+          <div class="attire-modal-panel" role="dialog" aria-modal="true" aria-labelledby="attireModalTitle">
+            <button class="attire-modal-close" type="button" data-attire-close aria-label="Close outfit guide">×</button>
+            <div class="attire-modal-heading">
+              <span class="attire-modal-eyebrow" id="attireModalEyebrow">Dress Code Guide</span>
+              <h3 id="attireModalTitle">Outfit Guide</h3>
+              <p id="attireModalIntro"></p>
+            </div>
+            <div class="attire-modal-palette" id="attireModalPalette" aria-label="Designated colors"></div>
+            <div class="attire-look-grid" id="attireLookGrid"></div>
+            <div class="attire-modal-tip" id="attireModalTip"></div>
+          </div>
         </div>
 
         <div class="note attire-note reveal">
