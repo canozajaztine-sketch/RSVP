@@ -164,6 +164,59 @@
         pText=$("#formProgressText"), pPct=$("#formProgressPercent"), pBar=$("#formProgressBar"),
         summaryName=$("#summaryName"), summaryAttendance=$("#summaryAttendance");
 
+  const weddingRoles={
+    'jeanna annete salmorin':{role:'Maid of Honor',assignment:''},
+    'joshua angelo victoria':{role:'Best Man',assignment:''},
+    'angelyn cabujat':{role:'Bridesmaid',assignment:'Flower Girl'},
+    'john lloyd canoza':{role:'Groomsman',assignment:'Bible Bearer'},
+    'aira gie dela cruz':{role:'Bridesmaid',assignment:'Flower Girl'},
+    'angelo macaraeg':{role:'Groomsman',assignment:'Coin Bearer'},
+    'rose ann euginio':{role:'Bridesmaid',assignment:'Candle Sponsor'},
+    'charles del rosario':{role:'Groomsman',assignment:'Candle Sponsor'},
+    'connie relano':{role:'Bridesmaid',assignment:'Cord Sponsor'},
+    'marc eris canoza':{role:'Groomsman',assignment:'Cord Sponsor'},
+    'ashley ablao':{role:'Bridesmaid',assignment:'Flower Girl'},
+    'russel gon alcalde':{role:'Groomsman',assignment:'Flower Boy'},
+    'ira santos':{role:'Bridesmaid',assignment:'Flower Girl'},
+    'kian seamus de vera':{role:'Groomsman',assignment:'Ring Bearer'},
+    'lateefa valerio':{role:'Bridesmaid',assignment:'Veil Sponsor'},
+    'dexter kyle de jesus':{role:'Groomsman',assignment:'Veil Sponsor'},
+    'mary joy dipon':{role:'Bridesmaid',assignment:'Flower Girl'},
+    'john michael santos':{role:'Groomsman',assignment:''},
+    'mr. enrico canoza':{role:'Parents of the Groom',assignment:""},
+    'mrs. herminia canoza':{role:'Parents of the Groom',assignment:""},
+    'mr. arcangel santos':{role:'Parents of the Bride',assignment:""},
+    'mrs. mary anne santos':{role:'Parents of the Bride',assignment:""},
+    'mr. napoleon ombao':{role:'Principal Sponsor',assignment:""},
+    'mrs. aileen ombao':{role:'Principal Sponsor',assignment:""},
+    'mr. darwin raya':{role:'Principal Sponsor',assignment:""},
+    'mrs. filipina raya':{role:'Principal Sponsor',assignment:""},
+    'mr. mark reymundo antonio':{role:'Principal Sponsor',assignment:""},
+    'mrs. rizalina antonio':{role:'Principal Sponsor',assignment:""},
+    'mr. gian carlo picazo':{role:'Principal Sponsor',assignment:""},
+    'mrs. marilou picazo':{role:'Principal Sponsor',assignment:""},
+    'mr. jennison ronquillo':{role:'Principal Sponsor',assignment:""},
+    'mrs. merlita martin':{role:'Principal Sponsor',assignment:""},
+    'mr. mark angelo samson':{role:'Principal Sponsor',assignment:""},
+    'mrs. pauline samson':{role:'Principal Sponsor',assignment:""},
+    'mr. jonah garcia':{role:'Principal Sponsor',assignment:""},
+    'mrs. sarah garcia':{role:'Principal Sponsor',assignment:""}
+  };
+  const normalizeGuestName=name=>name.toLocaleLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/^(mr|mrs|ms|miss)\.?\s+/i,"").replace(/[^a-z\s]/g,"").replace(/\s+/g," ").trim();
+  const normalizedRoles=Object.fromEntries(Object.entries(weddingRoles).map(([name,info])=>[normalizeGuestName(name),info]));
+  function updateGuestRole(){
+    const name=$("#fullName")?.value.trim()||"";
+    const found=normalizedRoles[normalizeGuestName(name)];
+    const role=found?.role||"Wedding Guest";
+    const assignment=found?.assignment||"";
+    const roleField=$("#guestRole"), assignmentField=$("#ceremonyAssignment"), recognition=$("#roleRecognition");
+    if(roleField)roleField.value=role;
+    if(assignmentField)assignmentField.value=assignment;
+    if(recognition){recognition.hidden=!found;recognition.textContent=found?`Welcome, ${name}! Your entourage role: ${role}${assignment?` · ${assignment}`:""}.`:"";}
+    const summaryRole=$("#summaryRole");
+    if(summaryRole)summaryRole.textContent=assignment?`${role} · ${assignment}`:role;
+  }
+
   let currentStep=1;
   const TOTAL_STEPS=2;
   if(RSVP_ENDPOINT && RSVP_ENDPOINT.trim()) setupNote?.classList.add("hidden");
@@ -171,6 +224,7 @@
   const selected=name=>$(`input[name="${name}"]:checked`)?.value||"";
 
   function summary(){
+    updateGuestRole();
     if(summaryName) summaryName.textContent=$("#fullName")?.value.trim()||"Guest";
     if(summaryAttendance) summaryAttendance.textContent=selected("data[Attendance]")||"Not selected yet";
   }
@@ -200,6 +254,7 @@
 
   $$("input[name=\"data[Attendance]\"]").forEach(i=>i.addEventListener("change",summary));
   $("#fullName")?.addEventListener("input",summary);
+  updateGuestRole();
 
   form?.addEventListener("submit",async e=>{
     e.preventDefault();

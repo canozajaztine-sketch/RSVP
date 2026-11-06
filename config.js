@@ -19,4 +19,4 @@ const RSVP_ENDPOINT = "https://sheetdb.io/api/v1/kq6hqyeecsko4";
   Wedding date used by the countdown.
   Philippines time is UTC+08:00.
 */
-const WEDDING_DATE = "2026-12-05T15:00:00+08:00";
+const WEDDING_DATE = "2026-12-05T14:00:00+08:00";

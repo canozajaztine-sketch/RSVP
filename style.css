@@ -1650,3 +1650,24 @@ body.attire-modal-open{overflow:hidden}
   .attire-look-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .attire-click-note{padding:18px 20px}
 }
+
+/* Wedding entourage and RSVP acknowledgment — November 2026 */
+.entourage-section .section-header{max-width:780px;margin-left:auto;margin-right:auto}
+.entourage-two-col,.entourage-three-col,.entourage-roster{display:grid;grid-template-columns:1fr;gap:15px}
+.entourage-panel{padding:26px 20px;border:1px solid rgba(33,66,51,.12);background:#fffdf9;border-radius:18px;text-align:center;box-shadow:0 8px 26px rgba(39,42,34,.04)}
+.entourage-panel h3,.entourage-panel h4{font-family:'Cormorant Garamond',serif;color:#7b1e31;font-size:1.5rem;line-height:1.2;margin:0 0 13px}
+.entourage-panel h4{font-size:1.26rem}
+.entourage-panel p{font-size:.8rem;line-height:1.8;letter-spacing:.025em;margin:2px 0;color:var(--ink)}
+.entourage-group-title{font-family:'Alex Brush',cursive;text-align:center;color:#7b1e31;font-size:2.55rem;font-weight:400;margin:42px 0 20px}
+.entourage-roster{grid-template-columns:repeat(2,minmax(0,1fr))}
+.entourage-person{background:#fffdf9;border:1px solid rgba(33,66,51,.10);border-radius:13px;padding:16px 11px;text-align:center;min-width:0}
+.entourage-person h4{font-size:.82rem;color:var(--green);line-height:1.5;margin:0 0 5px;overflow-wrap:anywhere}
+.entourage-person p{font-size:.72rem;color:var(--muted);margin:0}
+.entourage-person span{display:inline-block;border-radius:30px;padding:4px 9px;background:#f5e8e7;color:#7b1e31;font-size:.65rem;margin-top:9px}
+.entourage-footnote{text-align:center;font-size:.78rem;color:var(--muted);margin:24px auto 0}
+.rsvp-capacity-note{border:1px solid #e7d5c7;border-left:4px solid #7b1e31;background:#fff9f4;padding:16px 18px;border-radius:13px;margin:4px 0 24px}
+.rsvp-capacity-note strong{font-size:.83rem;color:#7b1e31;display:block;margin-bottom:6px}
+.rsvp-capacity-note p{font-size:.76rem;line-height:1.7;color:var(--ink);margin:0}
+.role-recognition{border-radius:12px;background:#eef4ec;padding:13px 16px;margin:-5px 0 18px;color:var(--green);font-size:.78rem;line-height:1.6}
+@media(min-width:640px){.entourage-two-col{grid-template-columns:repeat(2,minmax(0,1fr))}.entourage-three-col{grid-template-columns:repeat(3,minmax(0,1fr))}.entourage-roster{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:900px){.entourage-roster{grid-template-columns:repeat(4,minmax(0,1fr))}.entourage-panel{padding:30px 22px}}
