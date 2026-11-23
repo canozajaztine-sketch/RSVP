@@ -1,0 +1,18 @@
+name = "wedding-memories"
+main = "worker.mjs"
+compatibility_date = "2026-11-21"
+workers_dev = true
+preview_urls = false
+
+[vars]
+ALLOWED_ORIGIN = "https://canozajaztine-sketch.github.io"
+UPLOAD_CLOSES = "2027-01-05T00:00:00+08:00"
+EVENT_BYTE_LIMIT = "12000000000"
+
+[[durable_objects.bindings]]
+name = "QUOTA"
+class_name = "UploadQuota"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["UploadQuota"]

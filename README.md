@@ -99,3 +99,10 @@ This version is true mobile-first CSS:
 - Desktop enhancements start at `@media (min-width: 900px)`.
 - Wide desktop refinements start at `@media (min-width: 1180px)`.
 - Touch targets, RSVP cards, navigation, and sticky mobile form actions are optimized for phones first.
+
+## Reception photo and video uploads
+
+The guest upload link is https://canozajaztine-sketch.github.io/RSVP/#upload.
+See the [deployment and Google Drive connection guide](_memories-backend/DEPLOY.md)
+and download the [printable reception card](memories/reception-card.pdf) or
+[standalone QR code](memories/reception-qr.png).

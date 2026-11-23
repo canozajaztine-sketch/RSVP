@@ -11,8 +11,65 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20261106-v6">
+  <script>
+    (() => {
+      const updateUploadRoute = () => {
+        const isUpload = location.hash === "#upload";
+        document.documentElement.classList.toggle("show-memories", isUpload);
+        document.title = isUpload
+          ? "Share Your Memories | Jaztine & Mary Ven"
+          : "Jaztine & Mary Ven | Wedding Invitation";
+        if (isUpload) window.scrollTo(0, 0);
+      };
+      updateUploadRoute();
+      window.addEventListener("hashchange", updateUploadRoute);
+    })();
+  </script>
+  <link rel="stylesheet" href="memories/upload.css">
 </head>
 <body>
+  <main id="upload" aria-labelledby="memories-title" hidden>
+    <header class="memories-header">
+      <p class="memories-couple">Jaztine <span>&amp;</span> Mary Ven</p>
+      <p class="memories-date">December 5, 2026</p>
+      <div class="memories-ornament" aria-hidden="true">◆</div>
+      <h1 id="memories-title">Share Your Memories With Us!</h1>
+      <p>Capture the love, laughter, and unforgettable moments.</p>
+    </header>
+
+    <form id="memories-form" class="memories-panel">
+      <label class="memories-choose" for="memories-files">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M8 6l1.5-2h5L16 6h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><circle cx="12" cy="13" r="3.5"/>
+        </svg>
+        <span>Choose Photos &amp; Videos</span>
+      </label>
+      <input class="memories-file" id="memories-files" type="file" multiple
+        accept="image/*,video/*,.heic,.heif,.mov,.mp4" aria-describedby="memories-limits">
+      <p id="memories-limits" class="memories-help">JPEG, PNG, HEIC, MP4 or MOV. Up to 200 MB each.</p>
+      <ul id="memories-selection" aria-label="Selected files" hidden></ul>
+
+      <label for="memories-name">Your name <small>(optional)</small></label>
+      <input id="memories-name" type="text" autocomplete="name" maxlength="80">
+
+      <label for="memories-message">A message for the couple <small>(optional)</small></label>
+      <textarea id="memories-message" rows="2" maxlength="500"></textarea>
+
+      <button id="memories-send" type="submit" disabled>Send Memories</button>
+      <div id="memories-progress-wrap" hidden>
+        <label for="memories-progress">Upload progress <span id="memories-percent"></span></label>
+        <progress id="memories-progress" max="100" value="0"></progress>
+      </div>
+      <p id="memories-status" role="status" aria-live="polite" hidden></p>
+      <noscript><p>Enable JavaScript to send your photos and videos.</p></noscript>
+    </form>
+
+    <section id="memories-success" class="memories-panel" hidden aria-labelledby="memories-thanks">
+      <h2 id="memories-thanks" tabindex="-1">Thank you for sharing!</h2>
+      <p id="memories-confirmation"></p>
+      <button id="memories-more" type="button">Upload More Memories</button>
+    </section>
+  </main>
 
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
@@ -743,5 +800,6 @@
 
   <script src="config.js?v=20261106-v6"></script>
   <script src="script.js?v=20261106-v6"></script>
+  <script type="module" src="memories/upload.js"></script>
 </body>
 </html>
