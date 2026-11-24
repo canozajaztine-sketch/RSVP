@@ -1,0 +1,76 @@
+#upload, #upload [hidden] { display: none; }
+html.show-memories { scroll-behavior: auto; }
+.show-memories body { background: #103a2c; }
+.show-memories body > :not(#upload) { display: none !important; }
+
+.show-memories #upload {
+  display: block;
+  min-height: 100svh;
+  padding: max(1.75rem, env(safe-area-inset-top)) 1rem max(2rem, env(safe-area-inset-bottom));
+  background: radial-gradient(ellipse at top, #225740, #103a2c 60%, #0b2d23);
+  color: #fff8e9;
+  font-family: Montserrat, sans-serif;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+.memories-header, .memories-panel { width: min(100%, 32rem); margin-inline: auto; }
+.memories-header { text-align: center; margin-bottom: 1.35rem; }
+#upload .memories-couple {
+  font: 600 1.8rem/1.2 "Cormorant Garamond", Georgia, serif;
+  color: #f2d391;
+}
+.memories-couple span { font-style: italic; }
+#upload .memories-date { margin-top: .22rem; font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; }
+.memories-ornament { display: flex; align-items: center; gap: .65rem; justify-content: center; color: #ddb977; font-size: .65rem; margin: .8rem 0; }
+.memories-ornament::before, .memories-ornament::after { content: ""; width: 3rem; height: 1px; background: currentColor; }
+#upload h1, #upload h2 {
+  font: 600 clamp(2.25rem, 7.7vw, 3.25rem)/.98 "Cormorant Garamond", Georgia, serif;
+  text-wrap: balance;
+  margin-bottom: .65rem;
+}
+#upload .memories-header > p:last-child { color: #eee3cc; text-wrap: balance; }
+.memories-panel {
+  background: #fff8eb;
+  border: 1px solid #d7b878;
+  border-radius: 1rem;
+  padding: clamp(1rem, 5vw, 1.75rem);
+  color: #173a2d;
+  box-shadow: 0 .8rem 2.8rem #071e1655;
+}
+#upload label { display: block; font-weight: 700; margin-top: .9rem; }
+#upload small { font-size: .8em; font-weight: 500; color: #516457; }
+#upload .memories-choose, #memories-send, #memories-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .65rem;
+  width: 100%;
+  min-height: 3.25rem;
+  padding: .7rem .75rem;
+  border-radius: .6rem;
+  font-size: .94rem;
+  font-weight: 700;
+}
+#upload .memories-choose { cursor: pointer; margin-top: 0; background: #f4e5c5; border: 1px dashed #90733d; }
+.memories-choose svg { width: 1.4rem; flex: none; }
+.memories-file { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+#upload .memories-choose:has(+ :focus-visible), #upload :focus-visible { outline: 3px solid #8e6929; outline-offset: 3px; }
+#upload .memories-choose[aria-disabled="true"] { opacity: .65; cursor: default; }
+#upload .memories-help { margin-top: .45rem; text-align: center; color: #516457; font-size: .75rem; }
+#upload input[type=text], #upload textarea {
+  display: block; width: 100%; margin-top: .25rem; padding: .55rem .65rem;
+  border: 1px solid #a3ad9d; border-radius: .5rem;
+  background: #fffdfa; color: inherit; font-size: 1rem;
+}
+#upload textarea { resize: vertical; }
+#memories-send, #memories-more { margin-top: 1rem; background: #174835; color: #fff8eb; border: 1px solid transparent; }
+#memories-send:disabled { opacity: .55; cursor: default; }
+#memories-selection { list-style: none; margin-top: .75rem; padding: 0; max-height: 16rem; overflow: auto; }
+#memories-selection li { display: grid; grid-template-columns: 3rem minmax(0, 1fr) auto; align-items: center; gap: .65rem; padding: .4rem 0; border-bottom: 1px solid #dddfd3; }
+#memories-selection :is(img,video,.memories-placeholder) { display: grid; place-items: center; width: 3rem; height: 3rem; object-fit: cover; border-radius: .35rem; background: #eadfc8; font-size: .65rem; }
+#memories-selection .memories-filename { overflow-wrap: anywhere; font-size: .8rem; }
+#memories-selection button { border: 0; background: transparent; color: #174835; min-width: 2.75rem; min-height: 2.75rem; text-decoration: underline; font-size: .75rem; }
+#memories-progress { width: 100%; accent-color: #174835; }
+#memories-percent { float: right; }
+#memories-status { margin-top: .75rem; }
+#memories-success { text-align: center; }
